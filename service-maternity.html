@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maternity & Gynecology - Darul Shifa Imam Khomeini Hospital</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .service-detail-hero {
+            margin-top: 100px;
+            padding: 4rem 4rem;
+            background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .service-detail-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-detail-hero .icon {
+            font-size: 5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-detail-hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.95;
+        }
+
+        .breadcrumb {
+            padding: 1.5rem 4rem;
+            background: #fafafa;
+            font-size: 0.95rem;
+        }
+
+        .breadcrumb a {
+            color: #666;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .breadcrumb a:hover {
+            color: #dc2626;
+        }
+
+        .breadcrumb span {
+            color: #1a1a1a;
+            font-weight: 600;
+        }
+
+        .service-content-section {
+            padding: 4rem 4rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        .main-content h2 {
+            font-size: 2.2rem;
+            color: #1a1a1a;
+            margin-bottom: 1.5rem;
+            margin-top: 2.5rem;
+        }
+
+        .main-content h2:first-child {
+            margin-top: 0;
+        }
+
+        .main-content p {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            color: #555;
+            margin-bottom: 1.5rem;
+        }
+
+        .main-content ul {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+
+        .main-content ul li {
+            padding: 1rem 0;
+            border-bottom: 1px solid #f0f0f0;
+            color: #444;
+            font-size: 1.05rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .main-content ul li:last-child {
+            border-bottom: none;
+        }
+
+        .main-content ul li::before {
+            content: "✓";
+            color: #dc2626;
+            font-weight: bold;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+
+        .image-gallery {
+            margin: 3rem 0;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .gallery-item {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.03);
+            box-shadow: 0 10px 30px rgba(220, 38, 38, 0.2);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .video-section {
+            margin: 3rem 0;
+            background: #fafafa;
+            padding: 2rem;
+            border-radius: 15px;
+        }
+
+        .video-section h3 {
+            font-size: 1.5rem;
+            color: #1a1a1a;
+            margin-bottom: 1.5rem;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 10px;
+            background: #000;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .sidebar {
+            position: sticky;
+            top: 120px;
+            height: fit-content;
+        }
+
+        .info-box {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            border: 2px solid #f0f0f0;
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .info-box:hover {
+            border-color: #dc2626;
+            box-shadow: 0 5px 20px rgba(220, 38, 38, 0.1);
+        }
+
+        .info-box h3 {
+            font-size: 1.4rem;
+            color: #1a1a1a;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #dc2626;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.2rem;
+            padding: 0.8rem;
+            border-radius: 8px;
+            transition: background 0.3s ease;
+        }
+
+        .info-item:hover {
+            background: #fef2f2;
+        }
+
+        .info-item .icon {
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .info-item .text {
+            flex: 1;
+        }
+
+        .info-item .label {
+            font-size: 0.85rem;
+            color: #666;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+
+        .info-item .value {
+            font-size: 1rem;
+            color: #1a1a1a;
+            font-weight: 600;
+        }
+
+        .cta-box {
+            background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+            color: white;
+            padding: 2.5rem 2rem;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .cta-box h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-box p {
+            margin-bottom: 1.5rem;
+            opacity: 0.95;
+        }
+
+        .cta-box .cta-button {
+            background: white;
+            color: #dc2626;
+            border-color: white;
+        }
+
+        .cta-box .cta-button:hover {
+            background: #fef2f2;
+            transform: translateY(-3px);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            border: 2px solid #f0f0f0;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: #dc2626;
+            box-shadow: 0 10px 30px rgba(220, 38, 38, 0.1);
+        }
+
+        .feature-card .icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h4 {
+            font-size: 1.2rem;
+            color: #1a1a1a;
+            margin-bottom: 0.8rem;
+        }
+
+        .feature-card p {
+            font-size: 0.95rem;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 1024px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                position: static;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .service-detail-hero {
+                padding: 3rem 2rem;
+            }
+
+            .service-detail-hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .service-detail-hero .icon {
+                font-size: 3.5rem;
+            }
+
+            .breadcrumb,
+            .service-content-section {
+                padding: 1.5rem 2rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="icon.ico" alt="Hospital Logo">
+        </div>
+        <h1 class="hospital-name">Darul Shifa Imam Khomeini Hospital Quetta</h1>
+        <nav>
+            <a href="index.html">
+                <span class="nav-icon"></span>
+                Home
+            </a>
+            <a href="services.html">
+                <span class="nav-icon"></span>
+                Services
+            </a>
+            <a href="doctors.html">
+                <span class="nav-icon"></span>
+                Our Doctors
+            </a>
+            <a href="appointment.html">
+                <span class="nav-icon"></span>
+                Book Appointment
+            </a>
+            <a href="contact.html">
+                <span class="nav-icon"></span>
+                Contact
+            </a>
+            <a href="about.html">
+                <span class="nav-icon"></span>
+                About Us
+            </a>
+        </nav>
+    </header>
+
+    <section class="service-detail-hero">
+        <div class="icon">👶</div>
+        <h1>Maternity & Gynecology</h1>
+        <p>Complete maternal and women's health services with compassionate care throughout pregnancy and beyond</p>
+    </section>
+
+    <div class="breadcrumb">
+        <a href="index.html">Home</a> / <a href="services.html">Services</a> / <span>Maternity & Gynecology</span>
+    </div>
+
+    <section class="service-content-section">
+        <div class="content-grid">
+            <div class="main-content">
+                <h2>Comprehensive Women's Healthcare</h2>
+                <p>
+                    Our Maternity and Gynecology department provides complete healthcare services for women at every stage of life. From prenatal care to delivery, and gynecological health concerns, we offer compassionate, expert care in a comfortable, supportive environment.
+                </p>
+                <p>
+                    Our team of experienced obstetricians and gynecologists, along with skilled midwives and nurses, work together to ensure the health and wellbeing of mothers and babies. We combine medical expertise with personalized attention to make your experience as comfortable as possible.
+                </p>
+
+                <h2>Maternity Services</h2>
+                <ul>
+                    <li>Prenatal Care and Regular Checkups</li>
+                    <li>High-Risk Pregnancy Management</li>
+                    <li>Ultrasound Scans and Fetal Monitoring</li>
+                    <li>Normal Vaginal Delivery</li>
+                    <li>Cesarean Section (C-Section)</li>
+                    <li>Labor and Delivery Suite</li>
+                    <li>Postnatal Care and Recovery</li>
+                    <li>Breastfeeding Support and Guidance</li>
+                    <li>Newborn Care Services</li>
+                    <li>Family Planning Counseling</li>
+                    <li>Emergency Obstetric Care</li>
+                    <li>Pregnancy Complication Management</li>
+                </ul>
+
+                <h2>Gynecology Services</h2>
+                <ul>
+                    <li>Routine Gynecological Examinations</li>
+                    <li>Menstrual Disorder Treatment</li>
+                    <li>Fertility Consultation and Treatment</li>
+                    <li>Polycystic Ovary Syndrome (PCOS) Management</li>
+                    <li>Menopause Management</li>
+                    <li>Contraception and Family Planning</li>
+                    <li>Treatment of Gynecological Infections</li>
+                    <li>Gynecological Surgery</li>
+                    <li>Cervical Cancer Screening</li>
+                    <li>Uterine Fibroid Treatment</li>
+                    <li>Endometriosis Management</li>
+                    <li>Women's Health Counseling</li>
+                </ul>
+
+                <h2>Prenatal Care</h2>
+                <p>
+                    Regular prenatal visits are essential for a healthy pregnancy. Our comprehensive prenatal care includes physical examinations, ultrasound scans, blood tests, and health counseling. We monitor both mother and baby's health throughout pregnancy, addressing any concerns promptly.
+                </p>
+
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="icon">🤰</div>
+                        <h4>Prenatal Monitoring</h4>
+                        <p>Regular checkups throughout pregnancy</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon">👶</div>
+                        <h4>Safe Deliveries</h4>
+                        <p>Normal and cesarean delivery services</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon">💗</div>
+                        <h4>Postnatal Care</h4>
+                        <p>Mother and baby care after delivery</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon">👨‍⚕️</div>
+                        <h4>Expert Team</h4>
+                        <p>Experienced obstetricians and gynecologists</p>
+                    </div>
+                </div>
+
+                <h2>Labor & Delivery</h2>
+                <p>
+                    Our modern labor and delivery suites are designed to provide a comfortable, safe environment for childbirth. We support natural childbirth while being prepared for any complications. Our team is trained in both normal deliveries and emergency obstetric procedures.
+                </p>
+                <p>
+                    We encourage family participation in the birthing process and provide options for pain management during labor. Our neonatal team is always on standby to ensure immediate care for newborns if needed.
+                </p>
+
+                <h2>High-Risk Pregnancy Care</h2>
+                <p>
+                    For pregnancies with complications such as gestational diabetes, hypertension, multiple pregnancies, or previous cesarean sections, we provide specialized high-risk pregnancy care. Our team monitors these pregnancies closely and coordinates with other specialists when needed.
+                </p>
+
+                <div class="image-gallery">
+                    <h2>Our Maternity Facilities</h2>
+                    <div class="gallery-grid">
+                        <div class="gallery-item">
+                            <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=600&h=400&fit=crop" alt="Maternity Ward">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://images.unsplash.com/photo-1551076805-e1869033e561?w=600&h=400&fit=crop" alt="Delivery Room">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?w=600&h=400&fit=crop" alt="Consultation">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=600&h=400&fit=crop" alt="Ultrasound">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="video-section">
+                    <h3>🎥 Maternity Care Guide</h3>
+                    <div class="video-container">
+                        <iframe 
+                            src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <p style="margin-top: 1rem; color: #666; font-size: 0.95rem;">
+                        Learn about pregnancy care, delivery options, and what to expect during your hospital stay.
+                    </p>
+                </div>
+
+                <h2>Postnatal Care</h2>
+                <p>
+                    After delivery, we provide comprehensive postnatal care for both mother and baby. This includes monitoring recovery, wound care for cesarean sections, breastfeeding support, newborn care instructions, and emotional support during the adjustment period.
+                </p>
+                <p>
+                    Our lactation consultants help new mothers with breastfeeding techniques and address any difficulties. We also provide guidance on newborn care, immunizations, and postpartum health.
+                </p>
+
+                <h2>Gynecological Health</h2>
+                <p>
+                    We provide complete gynecological care including routine checkups, management of menstrual disorders, fertility issues, and menopausal symptoms. Our approach combines medical treatment with patient education and counseling.
+                </p>
+                <p>
+                    Regular gynecological examinations are important for early detection of health issues. We offer cervical cancer screening, breast examinations, and other preventive health services for women.
+                </p>
+
+                <h2>Family Planning</h2>
+                <p>
+                    We provide confidential family planning services and counseling on various contraceptive methods. Our doctors help you choose the most appropriate option based on your health, lifestyle, and family planning goals.
+                </p>
+
+                <h2>Women's Health Education</h2>
+                <p>
+                    We believe in empowering women with knowledge about their health. Our team provides education on reproductive health, pregnancy care, nutrition during pregnancy, safe motherhood practices, and general women's health concerns.
+                </p>
+            </div>
+
+            <div class="sidebar">
+                <div class="info-box">
+                    <h3>Quick Information</h3>
+                    <div class="info-item">
+                        <div class="icon">⏰</div>
+                        <div class="text">
+                            <span class="label">Clinic Hours</span>
+                            <span class="value">Daily 9 AM - 8 PM</span>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="icon">🏥</div>
+                        <div class="text">
+                            <span class="label">Deliveries</span>
+                            <span class="value">24/7 Available</span>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="icon">👩‍⚕️</div>
+                        <div class="text">
+                            <span class="label">Specialists</span>
+                            <span class="value">Lady Doctors Available</span>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="icon">📞</div>
+                        <div class="text">
+                            <span class="label">Appointment</span>
+                            <span class="value">0812857135</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cta-box">
+                    <h3>Book Your Appointment</h3>
+                    <p>Schedule your prenatal visit or gynecology consultation today.</p>
+                    <a href="appointment.html" class="cta-button">Book Now</a>
+                </div>
+
+                <div class="info-box">
+                    <h3>Related Services</h3>
+                    <div class="info-item">
+                        <div class="icon">📷</div>
+                        <div class="text">
+                            <a href="service-radiology.html" style="color: #1a1a1a; text-decoration: none;">
+                                <span class="value">Ultrasound & Imaging</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="icon">🔬</div>
+                        <div class="text">
+                            <a href="service-laboratory.html" style="color: #1a1a1a; text-decoration: none;">
+                                <span class="value">Laboratory Services</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="icon">🏥</div>
+                        <div class="text">
+                            <a href="service-ot.html" style="color: #1a1a1a; text-decoration: none;">
+                                <span class="value">Operation Theatre</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="emergency-banner">
+        24/7 Emergency Services Available | Call: 0812857135
+    </div>
+
+    <footer>
+        <div class="footer-tagline">
+            <span>WE CARE, WE CAN</span>
+        </div>
+        
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Get In Touch</h3>
+                <ul>
+                    <li>📍<br> Block 3, Hazara Town, Brewery Road, Quetta</li>
+                    <li>📞<br>0812857135</li>
+                    <li>🚨<br>Emergency: 0812857135</li>
+                    <li>✉️<br>info@darulshifaimamkhomeini.org</li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="doctors.html">Our Doctors</a></li>
+                    <li><a href="appointment.html">Book Appointment</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Patient Resources</h3>
+                <ul>
+                    <li><a href="appointment.html">Book Appointment</a></li>
+                    <li><a href="doctors.html">Find a Doctor</a></li>
+                    <li><a href="contact.html">Visitor Information</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Working Hours</h3>
+                <ul>
+                    <li style="margin-top: 1rem; font-weight: 600;">Emergency: 24/7</li>
+                </ul>
+                <br><br><br><br><br>
+                <div class="social-icons">
+                    <a href="#" title="Facebook">✓</a>
+                    <a href="#" title="YouTube">✓</a>
+                    <a href="#" title="LinkedIn">✓</a>
+                    <a href="#" title="Instagram">✓</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p style="margin-bottom: 0.5rem;">&copy; 2026 Darul Shifa Imam Khomeini Hospital Quetta. All rights reserved.</p>
+            <p>Committed to Excellence in Healthcare</p>
+            <p>Made by Inam Ali Soomro</p>
+        </div>
+    </footer>
+</body>
+</html>

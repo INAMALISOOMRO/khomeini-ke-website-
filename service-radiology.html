@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radiology & Imaging - Darul Shifa Imam Khomeini Hospital</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .service-detail-hero {
+            margin-top: 100px;
+            padding: 4rem 4rem;
+            background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .service-detail-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-detail-hero .icon {
+            font-size: 5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-detail-hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.95;
+        }
+
+        .breadcrumb {
+            padding: 1.5rem 4rem;
+            background: #fafafa;
+            font-size: 0.95rem;
+        }
+
+        .breadcrumb a {
+            color: #666;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .breadcrumb a:hover {
+            color: #dc2626;
+        }
+
+        .breadcrumb span {
+            color: #1a1a1a;
+            font-weight: 600;
+        }
+
+        .service-content-section {
+            padding: 4rem 4rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        .main-content h2 {
+            font-size: 2.2rem;
+            color: #1a1a1a;
+            margin-bottom: 1.5rem;
+            margin-top: 2.5rem;
+        }
+
+        .main-content h2:first-child {
+            margin-top: 0;
+        }
+
+        .main-content p {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            color: #555;
+            margin-bottom: 1.5rem;
+        }
+
+        .main-content ul {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+
+        .main-content ul li {
+            padding: 1rem 0;
+            border-bottom: 1px solid #f0f0f0;
+            color: #444;
+            font-size: 1.05rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .main-content ul li:last-child {
+            border-bottom: none;
+        }
+
+        .main-content ul li::before {
+            content: "✓";
+            color: #dc2626;
+            font-weight: bold;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+
+        .image-gallery {
+            margin: 3rem 0;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .gallery-item {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.03);
+            box-shadow: 0 10px 30px rgba(220, 38, 38, 0.2);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .video-section {
+            margin: 3rem 0;
+            background: #fafafa;
+            padding: 2rem;
+            border-radius: 15px;
+        }
+
+        .video-section h3 {
+            font-size: 1.5rem;
+            color: #1a1a1a;
+            margin-bottom: 1.5rem;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 10px;
+            background: #000;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .sidebar {
+            position: sticky;
+            top: 120px;
+            height: fit-content;
+        }
+
+        .info-box {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            border: 2px solid #f0f0f0;
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .info-box:hover {
+            border-color: #dc2626;
+            box-shadow: 0 5px 20px rgba(220, 38, 38, 0.1);
+        }
+
+        .info-box h3 {
+            font-size: 1.4rem;
+            color: #1a1a1a;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #dc2626;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.2rem;
+            padding: 0.8rem;
+            border-radius: 8px;
+            transition: background 0.3s ease;
+        }
+
+        .info-item:hover {
+            background: #fef2f2;
+        }
+
+        .info-item .icon {
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .info-item .text {
+            flex: 1;
+        }
+
+        .info-item .label {
+            font-size: 0.85rem;
+            color: #666;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+
+        .info-item .value {
+            font-size: 1rem;
+            color: #1a1a1a;
+            font-weight: 600;
+        }
+
+        .cta-box {
+            background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+            color: white;
+            padding: 2.5rem 2rem;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .cta-box h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-box p {
+            margin-bottom: 1.5rem;
+            opacity: 0.95;
+        }
+
+        .cta-box .cta-button {
+            background: white;
+            color: #dc2626;
+            border-color: white;
+        }
+
+        .cta-box .cta-button:hover {
+            background: #fef2f2;
+            transform: translateY(-3px);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            border: 2px solid #f0f0f0;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: #dc2626;
+            box-shadow: 0 10px 30px rgba(220, 38, 38, 0.1);
+        }
+
+        .feature-card .icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h4 {
+            font-size: 1.2rem;
+            color: #1a1a1a;
+            margin-bottom: 0.8rem;
+        }
+
+        .feature-card p {
+            font-size: 0.95rem;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 1024px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                position: static;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .service-detail-hero {
+                padding: 3rem 2rem;
+            }
+
+            .service-detail-hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .service-detail-hero .icon {
+                font-size: 3.5rem;
+            }
+
+            .breadcrumb,
+            .service-content-section {
+                padding: 1.5rem 2rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="icon.ico" alt="Hospital Logo">
+        </div>
+        <h1 class="hospital-name">Darul Shifa Imam Khomeini Hospital Quetta</h1>
+        <nav>
+            <a href="index.html">
+                <span class="nav-icon"></span>
+                Home
+            </a>
+            <a href="services.html">
+                <span class="nav-icon"></span>
+                Services
+            </a>
+            <a href="doctors.html">
+                <span class="nav-icon"></span>
+                Our Doctors
+            </a>
+            <a href="appointment.html">
+                <span class="nav-icon"></span>
+                Book Appointment
+            </a>
+            <a href="contact.html">
+                <span class="nav-icon"></span>
+                Contact
+            </a>
+            <a href="about.html">
+                <span class="nav-icon"></span>
+                About Us
+            </a>
+        </nav>
+    </header>
+
+    <section class="service-detail-hero">
+        <div class="icon">📷</div>
+        <h1>Radiology & Imaging Services</h1>
+        <p>Advanced diagnostic imaging technology with expert radiologists for accurate diagnosis and treatment planning</p>
+    </section>
+
+    <div class="breadcrumb">
+        <a href="index.html">Home</a> / <a href="services.html">Services</a> / <span>Radiology & Imaging</span>
+    </div>
+
+    <section class="service-content-section">
+        <div class="content-grid">
+            <div class="main-content">
+                <h2>State-of-the-Art Imaging Technology</h2>
+                <p>
+                    Our Radiology and Imaging Department is equipped with the latest diagnostic imaging technology to provide accurate and timely diagnosis. We offer a comprehensive range of imaging services performed by experienced radiologists and technicians.
+                </p>
+                <p>
+                    From routine X-rays to advanced imaging modalities, we ensure high-quality images with minimal radiation exposure. Our digital imaging systems allow for quick image processing and easy sharing with your healthcare providers.
+                </p>
+
+                <h2>Imaging Services Available</h2>
+                <ul>
+                    <li>Digital X-Ray (All body parts)</li>
+                    <li>Ultrasound and Doppler Studies</li>
+                    <li>Color Doppler Imaging</li>
+                    <li>CT Scan Services (Computed Tomography)</li>
+                    <li>Obstetric and Gynecological Ultrasound</li>
+                    <li>Abdominal and Pelvic Imaging</li>
+                    <li>Musculoskeletal Imaging</li>
+                    <li>Chest X-Ray and Pulmonary Imaging</li>
+                    <li>Cardiac Imaging and Echocardiography</li>
+                    <li>Emergency Imaging Services</li>
+                    <li>Portable X-Ray for Bedridden Patients</li>
+                    <li>Image-Guided Procedures</li>
+                </ul>
+
+                <h2>Digital X-Ray Services</h2>
+                <p>
+                    Our digital X-ray systems provide high-quality images with significantly reduced radiation exposure compared to traditional X-rays. Results are available within minutes, enabling quick diagnosis and treatment decisions.
+                </p>
+
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="icon">⚡</div>
+                        <h4>Fast Results</h4>
+                        <p>Quick image processing with digital technology</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon">🎯</div>
+                        <h4>High Accuracy</h4>
+                        <p>Crystal clear images for precise diagnosis</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon">🛡️</div>
+                        <h4>Low Radiation</h4>
+                        <p>Minimal exposure with modern equipment</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon">👨‍⚕️</div>
+                        <h4>Expert Radiologists</h4>
+                        <p>Experienced specialists reviewing all images</p>
+                    </div>
+                </div>
+
+                <h2>Ultrasound & Doppler</h2>
+                <p>
+                    Our ultrasound services include general diagnostic ultrasound, obstetric imaging for pregnancy monitoring, and color Doppler studies for blood flow assessment. We use advanced ultrasound machines that provide detailed, real-time images.
+                </p>
+                <p>
+                    Ultrasound is a safe, non-invasive imaging technique that uses sound waves to create images of internal organs and structures. It's particularly valuable for monitoring pregnancy, evaluating abdominal organs, and assessing blood vessels.
+                </p>
+
+                <h2>CT Scan Services</h2>
+                <p>
+                    Our CT scan facility provides detailed cross-sectional images of the body, essential for diagnosing complex conditions. CT scans are particularly useful for detecting internal injuries, tumors, and other abnormalities that may not be visible on regular X-rays.
+                </p>
+                <p>
+                    We offer both contrast and non-contrast CT studies, with specialized protocols for different body regions. Our radiologists provide detailed reports to guide treatment decisions.
+                </p>
+
+                <div class="image-gallery">
+                    <h2>Our Imaging Center</h2>
+                    <div class="gallery-grid">
+                        <div class="gallery-item">
+                            <img src="https://images.unsplash.com/photo-1516841273335-e39b37888115?w=600&h=400&fit=crop" alt="X-Ray Machine">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://images.unsplash.com/photo-1559757175-0eb30cd8c063?w=600&h=400&fit=crop" alt="Ultrasound Room">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://images.unsplash.com/photo-1581594549595-35f6edc7b762?w=600&h=400&fit=crop" alt="CT Scanner">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://images.unsplash.com/photo-1579684453423-f84349ef60b0?w=600&h=400&fit=crop" alt="Radiology Team">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="video-section">
+                    <h3>🎥 Understanding Medical Imaging</h3>
+                    <div class="video-container">
+                        <iframe 
+                            src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <p style="margin-top: 1rem; color: #666; font-size: 0.95rem;">
+                        Learn about different imaging modalities and how they help in accurate diagnosis.
+                    </p>
+                </div>
+
+                <h2>Safety & Quality Standards</h2>
+                <p>
+                    Patient safety is our top priority. We follow ALARA (As Low As Reasonably Achievable) principles to minimize radiation exposure while maintaining diagnostic image quality. Our equipment undergoes regular quality checks and calibration.
+                </p>
+                <p>
+                    All our radiologic technologists are trained and certified professionals who ensure proper patient positioning and optimal image acquisition. We maintain strict protocols for patient identification and procedure verification.
+                </p>
+
+                <h2>Radiologist Consultation</h2>
+                <p>
+                    Our experienced radiologists review all imaging studies and provide detailed written reports. Complex cases are discussed in multidisciplinary meetings to ensure comprehensive evaluation and optimal patient care.
+                </p>
+                <p>
+                    Radiologists are available for consultation with referring physicians to discuss findings and recommend additional imaging when necessary. We maintain a collaborative approach to ensure the best diagnostic outcomes.
+                </p>
+
+                <h2>Preparing for Your Imaging Test</h2>
+                <p>
+                    Most imaging procedures require minimal preparation. For specific studies like abdominal ultrasound or CT scans, you may need to fast for a few hours. Our staff will provide detailed instructions when you schedule your appointment.
+                </p>
+                <p>
+                    Please inform us if you're pregnant, have allergies, or have metal implants, as these factors may affect certain imaging procedures. Bring any previous imaging studies for comparison if available.
+                </p>
+            </div>
+
+            <div class="sidebar">
+                <div class="info-box">
+                    <h3>Quick Information</h3>
+                    <div class="info-item">
+                        <div class="icon">⏰</div>
+                        <div class="text">
+                            <span class="label">Service Hours</span>
+                            <span class="value">24/7 Emergency Imaging</span>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="icon">📷</div>
+                        <div class="text">
+                            <span class="label">Services</span>
+                            <span class="value">X-Ray, Ultrasound, CT</span>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="icon">⚡</div>
+                        <div class="text">
+                            <span class="label">Report Time</span>
+                            <span class="value">Same Day Results</span>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="icon">📞</div>
+                        <div class="text">
+                            <span class="label">Contact</span>
+                            <span class="value">0812857135</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cta-box">
+                    <h3>Schedule Imaging</h3>
+                    <p>Book your imaging appointment for accurate diagnosis.</p>
+                    <a href="appointment.html" class="cta-button">Book Appointment</a>
+                </div>
+
+                <div class="info-box">
+                    <h3>Related Services</h3>
+                    <div class="info-item">
+                        <div class="icon">🔬</div>
+                        <div class="text">
+                            <a href="service-laboratory.html" style="color: #1a1a1a; text-decoration: none;">
+                                <span class="value">Laboratory Services</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="icon">💊</div>
+                        <div class="text">
+                            <a href="service-general-medicine.html" style="color: #1a1a1a; text-decoration: none;">
+                                <span class="value">General Medicine</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="icon">❤️</div>
+                        <div class="text">
+                            <a href="service-cardiology.html" style="color: #1a1a1a; text-decoration: none;">
+                                <span class="value">Cardiology</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="emergency-banner">
+        24/7 Emergency Services Available | Call: 0812857135
+    </div>
+
+    <footer>
+        <div class="footer-tagline">
+            <span>WE CARE, WE CAN</span>
+        </div>
+        
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Get In Touch</h3>
+                <ul>
+                    <li>📍<br> Block 3, Hazara Town, Brewery Road, Quetta</li>
+                    <li>📞<br>0812857135</li>
+                    <li>🚨<br>Emergency: 0812857135</li>
+                    <li>✉️<br>info@darulshifaimamkhomeini.org</li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="doctors.html">Our Doctors</a></li>
+                    <li><a href="appointment.html">Book Appointment</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Patient Resources</h3>
+                <ul>
+                    <li><a href="appointment.html">Book Appointment</a></li>
+                    <li><a href="doctors.html">Find a Doctor</a></li>
+                    <li><a href="contact.html">Visitor Information</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Working Hours</h3>
+                <ul>
+                    <li style="margin-top: 1rem; font-weight: 600;">Emergency: 24/7</li>
+                </ul>
+                <br><br><br><br><br>
+                <div class="social-icons">
+                    <a href="#" title="Facebook">✓</a>
+                    <a href="#" title="YouTube">✓</a>
+                    <a href="#" title="LinkedIn">✓</a>
+                    <a href="#" title="Instagram">✓</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p style="margin-bottom: 0.5rem;">&copy; 2026 Darul Shifa Imam Khomeini Hospital Quetta. All rights reserved.</p>
+            <p>Committed to Excellence in Healthcare</p>
+            <p>Made by Inam Ali Soomro</p>
+        </div>
+    </footer>
+</body>
+</html>
