@@ -1,0 +1,677 @@
+* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+            background: #ffffff;
+            color: #1a1a1a;
+        }
+
+        /* Header Styles */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: #ffffff;
+            padding: 1rem 3rem;
+            display: flex;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 2 2px 10px rgba(253, 6, 6, 0.05);
+            border-bottom: 0.1px solid #969696;
+            transition: border-color 0.3s ease;
+        }
+
+        header:hover {
+            border-bottom-color: #b80e0e;
+        }
+
+        .logo {
+            width: 60px;
+            height: 60px;
+            background: #ffffff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+            background: #dc2626;
+            border-color: #b91c1c;
+        }
+
+        .logo-text {
+            font-size: 22px;
+            color: #dc2626;
+            transition: color 0.3s ease;
+        }
+
+        .logo:hover .logo-text {
+            color: white;
+        }
+
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .hospital-name {
+            color: #1a1a1a;
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            flex: 1;
+        }
+
+        nav {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        nav a {
+            color: #1a1a1a;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            padding: 0.5rem 0.8rem;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        nav a .nav-icon {
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+        }
+
+        nav a:hover {
+            color: #dc2626;
+            background: #fef2f2;
+        }
+
+        nav a:hover .nav-icon {
+            transform: scale(1.1);
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 100px;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            background: #ffffff;
+            padding: 0 4rem;
+        }
+
+        .hero-content {
+            flex: 1;
+            padding: 2rem;
+            color: #1a1a1a;
+            opacity: 0;
+            transform: translateX(-50px);
+            animation: slideInLeft 1s forwards 0.3s;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            color: #1a1a1a;
+        }
+
+        .hero-content .highlight {
+            color: #dc2626;
+            position: relative;
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+            color: #4a4a4a;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: #ffffff;
+            color: #1a1a1a;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid #1a1a1a;
+            margin-right: 1rem;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            background: #dc2626;
+            color: white;
+            border-color: #dc2626;
+            box-shadow: 0 8px 25px rgba(220, 38, 38, 0.3);
+        }
+
+        .cta-button.primary {
+            background: #dc2626;
+            color: white;
+            border-color: #dc2626;
+        }
+
+        .cta-button.primary:hover {
+            background: #b91c1c;
+            border-color: #b91c1c;
+        }
+
+        .hero-image {
+            flex: 1;
+            position: relative;
+            opacity: 0;
+            transform: scale(0.8);
+            animation: zoomIn 1s forwards 0.5s;
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .hero-image img:hover {
+            transform: scale(1.02);
+            box-shadow: 0 15px 50px rgba(220, 38, 38, 0.2);
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background: #ffffff;
+            color: #1a1a1a;
+            padding: 4rem 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            text-align: center;
+            border-top: 1px solid #f0f0f0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .stat-item {
+            transition: all 0.3s ease;
+            padding: 1rem;
+            border-radius: 10px;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-item:hover .stat-number {
+            color: #dc2626;
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            color: #666;
+            font-weight: 500;
+        }
+
+        /* Quick Appointment */
+        .quick-appointment {
+            padding: 5rem 4rem;
+            background: #fafafa;
+        }
+
+        .quick-appointment h2 {
+            font-size: 2.5rem;
+            color: #1a1a1a;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .quick-appointment .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+        }
+
+        .appointment-form {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .call-card {
+            background: white;
+            padding: 3rem 2rem;
+            border-radius: 15px;
+            border: 2px solid #f5f5f5;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: solid rgb(104, 104, 104) 1px;
+        }
+
+        .call-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            border-color: #dc2626;
+        }
+
+        .call-card:hover h3 {
+            color: #dc2626;
+        }
+
+        .call-card:hover p {
+            color: #dc2626;
+        }
+
+        .emergency-call {
+            border-color: #dc2626;
+        }
+
+        /* Director Section */
+        .director-section {
+            padding: 6rem 4rem;
+            background: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+        }
+
+        .director-image {
+            flex: 0 0 350px;
+            position: relative;
+        }
+
+        .director-image::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            right: 20px;
+            bottom: 20px;
+            background: white;
+            border: 3px solid #e5e5e5;
+            border-radius: 20px;
+            z-index: -1;
+            transition: border-color 0.3s ease;
+        }
+
+        .director-image:hover::before {
+            border-color: #dc2626;
+        }
+
+        .director-image img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .director-image:hover img {
+            transform: scale(1.02);
+        }
+
+        .director-content {
+            flex: 1;
+        }
+
+        .director-content h2 {
+            font-size: 3rem;
+            color: #1a1a1a;
+            margin-bottom: 0.8rem;
+            transition: color 0.3s ease;
+        }
+
+        .director-content h2:hover {
+            color: #dc2626;
+        }
+
+        .director-title {
+            font-size: 1.8rem;
+            color: #000000;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .director-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 1rem;
+        }
+
+        /* Testimonials Section */
+        .testimonials-section {
+            padding: 6rem 4rem;
+            background: #fafafa;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            color: #1a1a1a;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonial-card {
+            background: #ffffff;
+            padding: 2.5rem;
+            border-radius: 15px;
+            border: 2px solid #f0f0f0;
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-color: #dc2626;
+        }
+
+        .testimonial-text {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+            color: #4a4a4a;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+
+        .stars {
+            color: #666;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .testimonial-card:hover .stars {
+            color: #dc2626;
+        }
+
+        /* Emergency Banner */
+        .emergency-banner {
+            background: #dc2626;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            font-size: 1.3rem;
+            font-weight: 600;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .emergency-banner::before {
+            content: '🚨';
+            position: absolute;
+            left: 2rem;
+            font-size: 2rem;
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        .emergency-banner::after {
+            content: '🚨';
+            position: absolute;
+            right: 2rem;
+            font-size: 2rem;
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 6rem 4rem;
+            background: #ffffff;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 3rem auto 0;
+        }
+
+        .contact-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            border: 2px solid #f5f5f5;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-color: #dc2626;
+        }
+
+        .contact-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-card:hover .contact-icon {
+            transform: scale(1.2);
+        }
+
+        .contact-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: #1a1a1a;
+        }
+
+        .contact-card p {
+            font-size: 1.1rem;
+            color: #666;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .contact-card:hover p {
+            color: #dc2626;
+        }
+
+        /* Footer */
+        footer {
+            background: #dc2626;
+            color: white;
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-section ul li a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.9;
+            transition: all 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+            opacity: 1;
+            padding-left: 5px;
+        }
+
+        .footer-tagline {
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .footer-tagline span {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            opacity: 0.9;
+        }
+
+     .social-icons {
+    display: flex;
+    gap: 12px;
+}
+
+.social-icons a {
+    width: 60px;
+    height: 60px;
+    background: #f0f0f0;   /* round box color */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s ease;
+}
+
+.social-icons a img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+}
+
+/* Optional hover effect */
+.social-icons a:hover {
+    background: #ff1100;
+}
+
+       
+        /* Animations */
+        @keyframes slideInLeft {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes zoomIn {
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding: 0 2rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .director-section {
+                flex-direction: column;
+                padding: 3rem 2rem;
+            }
+
+            .director-image {
+                flex: 0 0 auto;
+            }
+
+            header {
+                padding: 1rem;
+            }
+
+            .hospital-name {
+                font-size: 0.9rem;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .contact-section,
+            .quick-appointment {
+                padding: 3rem 2rem;
+            }
+
+            .emergency-banner::before,
+            .emergency-banner::after {
+                display: none;
+            }
+
+            .cta-button {
+                margin-bottom: 1rem;
+            }
+        }

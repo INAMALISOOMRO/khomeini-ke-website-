@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laboratory Services - Darul Shifa Imam Khomeini Hospital</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Service Detail Page Styles */
+        .service-detail-hero {
+            margin-top: 100px;
+            padding: 4rem 4rem;
+            background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .service-detail-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-detail-hero .icon {
+            font-size: 5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-detail-hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.95;
+        }
+
+        .breadcrumb {
+            padding: 1.5rem 4rem;
+            background: #fafafa;
+            font-size: 0.95rem;
+        }
+
+        .breadcrumb a {
+            color: #666;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .breadcrumb a:hover {
+            color: #dc2626;
+        }
+
+        .breadcrumb span {
+            color: #1a1a1a;
+            font-weight: 600;
+        }
+
+        .service-content-section {
+            padding: 4rem 4rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        .main-content h2 {
+            font-size: 2.2rem;
+            color: #1a1a1a;
+            margin-bottom: 1.5rem;
+            margin-top: 2.5rem;
+        }
+
+        .main-content h2:first-child {
+            margin-top: 0;
+        }
+
+        .main-content p {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            color: #555;
+            margin-bottom: 1.5rem;
+        }
+
+        .main-content ul {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+
+        .main-content ul li {
+            padding: 1rem 0;
+            border-bottom: 1px solid #f0f0f0;
+            color: #444;
+            font-size: 1.05rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .main-content ul li:last-child {
+            border-bottom: none;
+        }
+
+        .main-content ul li::before {
+            content: "✓";
+            color: #dc2626;
+            font-weight: bold;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+
+        .image-gallery {
+            margin: 3rem 0;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .gallery-item {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.03);
+            box-shadow: 0 10px 30px rgba(220, 38, 38, 0.2);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .video-section {
+            margin: 3rem 0;
+            background: #fafafa;
+            padding: 2rem;
+            border-radius: 15px;
+        }
+
+        .video-section h3 {
+            font-size: 1.5rem;
+            color: #1a1a1a;
+            margin-bottom: 1.5rem;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 10px;
+            background: #000;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .sidebar {
+            position: sticky;
+            top: 120px;
+            height: fit-content;
+        }
+
+        .info-box {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            border: 2px solid #f0f0f0;
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .info-box:hover {
+            border-color: #dc2626;
+            box-shadow: 0 5px 20px rgba(220, 38, 38, 0.1);
+        }
+
+        .info-box h3 {
+            font-size: 1.4rem;
+            color: #1a1a1a;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #dc2626;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.2rem;
+            padding: 0.8rem;
+            border-radius: 8px;
+            transition: background 0.3s ease;
+        }
+
+        .info-item:hover {
+            background: #fef2f2;
+        }
+
+        .info-item .icon {
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .info-item .text {
+            flex: 1;
+        }
+
+        .info-item .label {
+            font-size: 0.85rem;
+            color: #666;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+
+        .info-item .value {
+            font-size: 1rem;
+            color: #1a1a1a;
+            font-weight: 600;
+        }
+
+        .cta-box {
+            background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+            color: white;
+            padding: 2.5rem 2rem;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .cta-box h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-box p {
+            margin-bottom: 1.5rem;
+            opacity: 0.95;
+        }
+
+        .cta-box .cta-button {
+            background: white;
+            color: #dc2626;
+            border-color: white;
+        }
+
+        .cta-box .cta-button:hover {
+            background: #fef2f2;
+            transform: translateY(-3px);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            border: 2px solid #f0f0f0;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: #dc2626;
+            box-shadow: 0 10px 30px rgba(220, 38, 38, 0.1);
+        }
+
+        .feature-card .icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h4 {
+            font-size: 1.2rem;
+            color: #1a1a1a;
+            margin-bottom: 0.8rem;
+        }
+
+        .feature-card p {
+            font-size: 0.95rem;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 1024px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                position: static;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .service-detail-hero {
+                padding: 3rem 2rem;
+            }
+
+            .service-detail-hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .service-detail-hero .icon {
+                font-size: 3.5rem;
+            }
+
+            .breadcrumb,
+            .service-content-section {
+                padding: 1.5rem 2rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="icon.ico" alt="Hospital Logo">
+        </div>
+        <h1 class="hospital-name">Darul Shifa Imam Khomeini Hospital Quetta</h1>
+        <nav>
+            <a href="index.html">
+                <span class="nav-icon"></span>
+                Home
+            </a>
+            <a href="services.html">
+                <span class="nav-icon"></span>
+                Services
+            </a>
+            <a href="doctors.html">
+                <span class="nav-icon"></span>
+                Our Doctors
+            </a>
+            <a href="appointment.html">
+                <span class="nav-icon"></span>
+                Book Appointment
+            </a>
+            <a href="contact.html">
+                <span class="nav-icon"></span>
+                Contact
+            </a>
+            <a href="about.html">
+                <span class="nav-icon"></span>
+                About Us
+            </a>
+        </nav>
+    </header>
+
+    <section class="service-detail-hero">
+        <div class="icon">🔬</div>
+        <h1>Laboratory Services</h1>
+        <p>Advanced diagnostic testing with state-of-the-art equipment and experienced laboratory technicians for accurate results</p>
+    </section>
+
+    <div class="breadcrumb">
+        <a href="index.html">Home</a> / <a href="services.html">Services</a> / <span>Laboratory Services</span>
+    </div>
+
+    <section class="service-content-section">
+        <div class="content-grid">
+            <div class="main-content">
+                <h2>Comprehensive Diagnostic Testing</h2>
+                <p>
+                    Our fully equipped laboratory provides a complete range of diagnostic testing services to support accurate medical diagnosis and treatment planning. We utilize cutting-edge technology and follow international quality standards to ensure reliable and timely results for all our patients.
+                </p>
+                <p>
+                    With a team of highly qualified pathologists, microbiologists, and laboratory technicians, we process thousands of tests daily while maintaining the highest accuracy standards. Our lab is equipped with automated analyzers and modern equipment that deliver fast, precise results.
+                </p>
+
+                <h2>Laboratory Tests We Offer</h2>
+                <ul>
+                    <li>Complete Blood Count (CBC) and Blood Chemistry</li>
+                    <li>Liver Function Tests (LFT) and Kidney Function Tests (KFT)</li>
+                    <li>Lipid Profile and Glucose Monitoring</li>
+                    <li>Thyroid Function Tests (T3, T4, TSH)</li>
+                    <li>Hormone Analysis and Fertility Tests</li>
+                    <li>Urine Analysis and Stool Examination</li>
+                    <li>Blood Grouping and Cross-Matching</li>
+                    <li>Microbiology and Culture Tests</li>
+                    <li>Serology and Immunology Tests</li>
+                    <li>Tumor Markers and Cancer Screening</li>
+                    <li>Cardiac Markers (Troponin, CK-MB)</li>
+                    <li>COVID-19 PCR and Antigen Testing</li>
+                </ul>
+
+                <h2>Advanced Technology & Equipment</h2>
+                <p>
+                    Our laboratory is equipped with fully automated analyzers from leading manufacturers, ensuring consistent accuracy and rapid turnaround times. We use digital systems for result management, allowing doctors to access reports quickly and securely.
+                </p>
+
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="icon">⚡</div>
+                        <h4>Quick Results</h4>
+                        <p>Same-day results for routine tests and emergency cases</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon">🎯</div>
+                        <h4>High Accuracy</h4>
+                        <p>Automated systems with quality control measures</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon">🔒</div>
+                        <h4>Confidential</h4>
+                        <p>Secure handling of samples and patient information</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon">👨‍🔬</div>
+                        <h4>Expert Staff</h4>
+                        <p>Qualified pathologists and laboratory technicians</p>
+                    </div>
+                </div>
+
+                <h2>Quality Assurance</h2>
+                <p>
+                    We participate in external quality assurance programs and maintain rigorous internal quality control protocols. Regular calibration of equipment, proficiency testing, and staff training ensure that our laboratory maintains the highest standards of diagnostic excellence.
+                </p>
+                <p>
+                    Our commitment to accuracy means we follow standardized procedures for sample collection, processing, and analysis. Every test goes through multiple quality checkpoints before results are released.
+                </p>
+
+                <div class="image-gallery">
+                    <h2>Our Laboratory Facilities</h2>
+                    <div class="gallery-grid">
+                        <div class="gallery-item">
+                            <img src="https://images.unsplash.com/photo-1582719471137-c3967ffb1c42?w=600&h=400&fit=crop" alt="Laboratory Equipment">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://images.unsplash.com/photo-1579154204845-466b14d14e08?w=600&h=400&fit=crop" alt="Lab Technician">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://images.unsplash.com/photo-1530026405186-ed1f139313f8?w=600&h=400&fit=crop" alt="Testing Area">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://images.unsplash.com/photo-1583324113626-70df0f4deaab?w=600&h=400&fit=crop" alt="Microscopy">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="video-section">
+                    <h3>🎥 How Our Laboratory Works</h3>
+                    <div class="video-container">
+                        <iframe 
+                            src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <p style="margin-top: 1rem; color: #666; font-size: 0.95rem;">
+                        Learn about our laboratory processes and how we ensure accurate diagnostic results.
+                    </p>
+                </div>
+
+                <h2>Sample Collection & Results</h2>
+                <p>
+                    We offer convenient sample collection services with trained phlebotomists who ensure patient comfort during the process. For routine tests, results are typically available within 24 hours, while urgent cases can be processed on a priority basis.
+                </p>
+                <p>
+                    Results can be collected in person or accessed digitally through our secure patient portal. Our staff is available to answer any questions about test results and can coordinate with your physician for proper interpretation.
+                </p>
+            </div>
+
+            <div class="sidebar">
+                <div class="info-box">
+                    <h3>Quick Information</h3>
+                    <div class="info-item">
+                        <div class="icon">⏰</div>
+                        <div class="text">
+                            <span class="label">Working Hours</span>
+                            <span class="value">24/7 Service Available</span>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="icon">⚡</div>
+                        <div class="text">
+                            <span class="label">Result Time</span>
+                            <span class="value">Same Day for Routine Tests</span>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="icon">🔬</div>
+                        <div class="text">
+                            <span class="label">Tests Offered</span>
+                            <span class="value">200+ Different Tests</span>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="icon">📞</div>
+                        <div class="text">
+                            <span class="label">Contact</span>
+                            <span class="value">0812857135</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cta-box">
+                    <h3>Need Lab Tests?</h3>
+                    <p>Book your laboratory tests today for fast and accurate results.</p>
+                    <a href="appointment.html" class="cta-button">Book Now</a>
+                </div>
+
+                <div class="info-box">
+                    <h3>Related Services</h3>
+                    <div class="info-item">
+                        <div class="icon">📷</div>
+                        <div class="text">
+                            <a href="service-radiology.html" style="color: #1a1a1a; text-decoration: none;">
+                                <span class="value">Radiology & Imaging</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="icon">💊</div>
+                        <div class="text">
+                            <a href="service-general-medicine.html" style="color: #1a1a1a; text-decoration: none;">
+                                <span class="value">General Medicine</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="icon">❤️</div>
+                        <div class="text">
+                            <a href="service-cardiology.html" style="color: #1a1a1a; text-decoration: none;">
+                                <span class="value">Cardiology</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="emergency-banner">
+        24/7 Emergency Services Available | Call: 0812857135
+    </div>
+
+    <footer>
+        <div class="footer-tagline">
+            <span>WE CARE, WE CAN</span>
+        </div>
+        
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Get In Touch</h3>
+                <ul>
+                    <li>📍<br> Block 3, Hazara Town, Brewery Road, Quetta</li>
+                    <li>📞<br>0812857135</li>
+                    <li>🚨<br>Emergency: 0812857135</li>
+                    <li>✉️<br>info@darulshifaimamkhomeini.org</li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="doctors.html">Our Doctors</a></li>
+                    <li><a href="appointment.html">Book Appointment</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Patient Resources</h3>
+                <ul>
+                    <li><a href="appointment.html">Book Appointment</a></li>
+                    <li><a href="doctors.html">Find a Doctor</a></li>
+                    <li><a href="contact.html">Visitor Information</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Working Hours</h3>
+                <ul>
+                    <li style="margin-top: 1rem; font-weight: 600;">Emergency: 24/7</li>
+                </ul>
+                <br><br><br><br><br>
+                <div class="social-icons">
+                    <a href="#" title="Facebook">✓</a>
+                    <a href="#" title="YouTube">✓</a>
+                    <a href="#" title="LinkedIn">✓</a>
+                    <a href="#" title="Instagram">✓</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p style="margin-bottom: 0.5rem;">&copy; 2026 Darul Shifa Imam Khomeini Hospital Quetta. All rights reserved.</p>
+            <p>Committed to Excellence in Healthcare</p>
+            <p>Made by Inam Ali Soomro</p>
+        </div>
+    </footer>
+</body>
+</html>

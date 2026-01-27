@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pharmacy - Darul Shifa Imam Khomeini Hospital</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .service-detail-hero {
+            margin-top: 100px;
+            padding: 4rem 4rem;
+            background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .service-detail-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-detail-hero .icon {
+            font-size: 5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-detail-hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.95;
+        }
+
+        .breadcrumb {
+            padding: 1.5rem 4rem;
+            background: #fafafa;
+            font-size: 0.95rem;
+        }
+
+        .breadcrumb a {
+            color: #666;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .breadcrumb a:hover {
+            color: #dc2626;
+        }
+
+        .breadcrumb span {
+            color: #1a1a1a;
+            font-weight: 600;
+        }
+
+        .service-content-section {
+            padding: 4rem 4rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        .main-content h2 {
+            font-size: 2.2rem;
+            color: #1a1a1a;
+            margin-bottom: 1.5rem;
+            margin-top: 2.5rem;
+        }
+
+        .main-content h2:first-child {
+            margin-top: 0;
+        }
+
+        .main-content p {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            color: #555;
+            margin-bottom: 1.5rem;
+        }
+
+        .main-content ul {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+
+        .main-content ul li {
+            padding: 1rem 0;
+            border-bottom: 1px solid #f0f0f0;
+            color: #444;
+            font-size: 1.05rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .main-content ul li:last-child {
+            border-bottom: none;
+        }
+
+        .main-content ul li::before {
+            content: "✓";
+            color: #dc2626;
+            font-weight: bold;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+
+        .image-gallery {
+            margin: 3rem 0;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .gallery-item {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.03);
+            box-shadow: 0 10px 30px rgba(220, 38, 38, 0.2);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .video-section {
+            margin: 3rem 0;
+            background: #fafafa;
+            padding: 2rem;
+            border-radius: 15px;
+        }
+
+        .video-section h3 {
+            font-size: 1.5rem;
+            color: #1a1a1a;
+            margin-bottom: 1.5rem;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 10px;
+            background: #000;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .sidebar {
+            position: sticky;
+            top: 120px;
+            height: fit-content;
+        }
+
+        .info-box {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            border: 2px solid #f0f0f0;
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .info-box:hover {
+            border-color: #dc2626;
+            box-shadow: 0 5px 20px rgba(220, 38, 38, 0.1);
+        }
+
+        .info-box h3 {
+            font-size: 1.4rem;
+            color: #1a1a1a;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #dc2626;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.2rem;
+            padding: 0.8rem;
+            border-radius: 8px;
+            transition: background 0.3s ease;
+        }
+
+        .info-item:hover {
+            background: #fef2f2;
+        }
+
+        .info-item .icon {
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .info-item .text {
+            flex: 1;
+        }
+
+        .info-item .label {
+            font-size: 0.85rem;
+            color: #666;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+
+        .info-item .value {
+            font-size: 1rem;
+            color: #1a1a1a;
+            font-weight: 600;
+        }
+
+        .cta-box {
+            background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+            color: white;
+            padding: 2.5rem 2rem;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .cta-box h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-box p {
+            margin-bottom: 1.5rem;
+            opacity: 0.95;
+        }
+
+        .cta-box .cta-button {
+            background: white;
+            color: #dc2626;
+            border-color: white;
+        }
+
+        .cta-box .cta-button:hover {
+            background: #fef2f2;
+            transform: translateY(-3px);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            border: 2px solid #f0f0f0;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: #dc2626;
+            box-shadow: 0 10px 30px rgba(220, 38, 38, 0.1);
+        }
+
+        .feature-card .icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h4 {
+            font-size: 1.2rem;
+            color: #1a1a1a;
+            margin-bottom: 0.8rem;
+        }
+
+        .feature-card p {
+            font-size: 0.95rem;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 1024px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                position: static;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .service-detail-hero {
+                padding: 3rem 2rem;
+            }
+
+            .service-detail-hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .service-detail-hero .icon {
+                font-size: 3.5rem;
+            }
+
+            .breadcrumb,
+            .service-content-section {
+                padding: 1.5rem 2rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="icon.ico" alt="Hospital Logo">
+        </div>
+        <h1 class="hospital-name">Darul Shifa Imam Khomeini Hospital Quetta</h1>
+        <nav>
+            <a href="index.html">
+                <span class="nav-icon"></span>
+                Home
+            </a>
+            <a href="services.html">
+                <span class="nav-icon"></span>
+                Services
+            </a>
+            <a href="doctors.html">
+                <span class="nav-icon"></span>
+                Our Doctors
+            </a>
+            <a href="appointment.html">
+                <span class="nav-icon"></span>
+                Book Appointment
+            </a>
+            <a href="contact.html">
+                <span class="nav-icon"></span>
+                Contact
+            </a>
+            <a href="about.html">
+                <span class="nav-icon"></span>
+                About Us
+            </a>
+        </nav>
+    </header>
+
+    <section class="service-detail-hero">
+        <div class="icon">💉</div>
+        <h1>Pharmacy Services</h1>
+        <p>24/7 pharmacy with quality medications, professional pharmaceutical care, and convenient home delivery options</p>
+    </section>
+
+    <div class="breadcrumb">
+        <a href="index.html">Home</a> / <a href="services.html">Services</a> / <span>Pharmacy</span>
+    </div>
+
+    <section class="service-content-section">
+        <div class="content-grid">
+            <div class="main-content">
+                <h2>Your Trusted Pharmacy Partner</h2>
+                <p>
+                    Our hospital pharmacy is a full-service facility stocked with a comprehensive range of medications, medical supplies, and healthcare products. We are committed to providing quality pharmaceutical care to ensure the best health outcomes for our patients.
+                </p>
+                <p>
+                    Staffed by licensed pharmacists and trained pharmacy technicians, we offer professional medication counseling, drug interaction checking, and personalized healthcare advice. Our team works closely with doctors to ensure safe and effective medication therapy.
+                </p>
+
+                <h2>Pharmacy Services</h2>
+                <ul>
+                    <li>Prescription Dispensing - Generic and branded medications</li>
+                    <li>Over-the-Counter (OTC) Medications and Supplements</li>
+                    <li>Medication Counseling and Drug Information</li>
+                    <li>Chronic Disease Management Support</li>
+                    <li>IV Solutions and Injectable Medications</li>
+                    <li>Diabetic Care Products and Supplies</li>
+                    <li>Pediatric Medications and Formulations</li>
+                    <li>Emergency Medications Available 24/7</li>
+                    <li>Home Delivery Service Available</li>
+                    <li>Insurance and Cash Prescriptions</li>
+                    <li>Medical Equipment and Supplies</li>
+                    <li>Vaccination Administration</li>
+                </ul>
+
+                <h2>Quality Assurance</h2>
+                <p>
+                    We source our medications only from licensed and reputable suppliers, ensuring authenticity and quality. All medicines are stored under proper conditions with temperature and humidity monitoring to maintain their effectiveness and safety.
+                </p>
+
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="icon">⏰</div>
+                        <h4>24/7 Service</h4>
+                        <p>Round-the-clock pharmacy services for emergencies and regular needs</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon">💊</div>
+                        <h4>Wide Range</h4>
+                        <p>Comprehensive stock of generic and branded medications</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon">👨‍⚕️</div>
+                        <h4>Expert Pharmacists</h4>
+                        <p>Licensed professionals providing medication counseling</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon">🚚</div>
+                        <h4>Home Delivery</h4>
+                        <p>Convenient delivery service for your medications</p>
+                    </div>
+                </div>
+
+                <h2>Medication Safety</h2>
+                <p>
+                    Patient safety is our priority. Our pharmacists carefully review all prescriptions for potential drug interactions, contraindications, and appropriate dosing. We provide clear labeling with usage instructions in both English and Urdu.
+                </p>
+                <p>
+                    We maintain detailed records of all dispensed medications and work with healthcare providers to optimize medication therapy. Our pharmacy software includes safety alerts to prevent medication errors and ensure patient wellbeing.
+                </p>
+
+                <div class="image-gallery">
+                    <h2>Our Pharmacy</h2>
+                    <div class="gallery-grid">
+                        <div class="gallery-item">
+                            <img src="https://images.unsplash.com/photo-1576602976047-174e57a47881?w=600&h=400&fit=crop" alt="Pharmacy Counter">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=600&h=400&fit=crop" alt="Medicine Shelves">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://images.unsplash.com/photo-1471864190281-a93a3070b6de?w=600&h=400&fit=crop" alt="Pharmacist">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600&h=400&fit=crop" alt="Medication Storage">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="video-section">
+                    <h3>🎥 Pharmacy Services Guide</h3>
+                    <div class="video-container">
+                        <iframe 
+                            src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <p style="margin-top: 1rem; color: #666; font-size: 0.95rem;">
+                        Learn about our pharmacy services and how we ensure medication safety and quality.
+                    </p>
+                </div>
+
+                <h2>Patient Counseling</h2>
+                <p>
+                    Our pharmacists take time to explain medication usage, potential side effects, and precautions. We believe in empowering patients with knowledge about their medications to improve adherence and outcomes.
+                </p>
+                <p>
+                    Whether you need information about a new prescription or have questions about managing chronic conditions, our pharmacy team is here to help. We offer private consultation areas for confidential discussions.
+                </p>
+
+                <h2>Home Delivery Service</h2>
+                <p>
+                    For patients who find it difficult to visit the pharmacy, we offer reliable home delivery services. Simply call us with your prescription, and we'll ensure your medications are delivered safely to your doorstep.
+                </p>
+            </div>
+
+            <div class="sidebar">
+                <div class="info-box">
+                    <h3>Quick Information</h3>
+                    <div class="info-item">
+                        <div class="icon">⏰</div>
+                        <div class="text">
+                            <span class="label">Service Hours</span>
+                            <span class="value">Open 24/7</span>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="icon">💊</div>
+                        <div class="text">
+                            <span class="label">Medication Stock</span>
+                            <span class="value">1000+ Products</span>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="icon">🚚</div>
+                        <div class="text">
+                            <span class="label">Delivery</span>
+                            <span class="value">Yes, Available</span>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="icon">📞</div>
+                        <div class="text">
+                            <span class="label">Contact</span>
+                            <span class="value">0812857135</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cta-box">
+                    <h3>Need Medications?</h3>
+                    <p>Contact our pharmacy for prescriptions and medication counseling.</p>
+                    <a href="tel:0812857135" class="cta-button">Call Pharmacy</a>
+                </div>
+
+                <div class="info-box">
+                    <h3>Related Services</h3>
+                    <div class="info-item">
+                        <div class="icon">💊</div>
+                        <div class="text">
+                            <a href="service-general-medicine.html" style="color: #1a1a1a; text-decoration: none;">
+                                <span class="value">General Medicine</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="icon">🔬</div>
+                        <div class="text">
+                            <a href="service-laboratory.html" style="color: #1a1a1a; text-decoration: none;">
+                                <span class="value">Laboratory Services</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="icon">🚨</div>
+                        <div class="text">
+                            <a href="service-emergency.html" style="color: #1a1a1a; text-decoration: none;">
+                                <span class="value">Emergency Care</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="emergency-banner">
+        24/7 Emergency Services Available | Call: 0812857135
+    </div>
+
+    <footer>
+        <div class="footer-tagline">
+            <span>WE CARE, WE CAN</span>
+        </div>
+        
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Get In Touch</h3>
+                <ul>
+                    <li>📍<br> Block 3, Hazara Town, Brewery Road, Quetta</li>
+                    <li>📞<br>0812857135</li>
+                    <li>🚨<br>Emergency: 0812857135</li>
+                    <li>✉️<br>info@darulshifaimamkhomeini.org</li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="doctors.html">Our Doctors</a></li>
+                    <li><a href="appointment.html">Book Appointment</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Patient Resources</h3>
+                <ul>
+                    <li><a href="appointment.html">Book Appointment</a></li>
+                    <li><a href="doctors.html">Find a Doctor</a></li>
+                    <li><a href="contact.html">Visitor Information</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Working Hours</h3>
+                <ul>
+                    <li style="margin-top: 1rem; font-weight: 600;">Emergency: 24/7</li>
+                </ul>
+                <br><br><br><br><br>
+                <div class="social-icons">
+                    <a href="#" title="Facebook">✓</a>
+                    <a href="#" title="YouTube">✓</a>
+                    <a href="#" title="LinkedIn">✓</a>
+                    <a href="#" title="Instagram">✓</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p style="margin-bottom: 0.5rem;">&copy; 2026 Darul Shifa Imam Khomeini Hospital Quetta. All rights reserved.</p>
+            <p>Committed to Excellence in Healthcare</p>
+            <p>Made by Inam Ali Soomro</p>
+        </div>
+    </footer>
+</body>
+</html>

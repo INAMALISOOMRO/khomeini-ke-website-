@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operation Theatre - Darul Shifa Imam Khomeini Hospital</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Service Detail Page Styles */
+        .service-detail-hero {
+            margin-top: 100px;
+            padding: 4rem 4rem;
+            background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .service-detail-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-detail-hero .icon {
+            font-size: 5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-detail-hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.95;
+        }
+
+        .breadcrumb {
+            padding: 1.5rem 4rem;
+            background: #fafafa;
+            font-size: 0.95rem;
+        }
+
+        .breadcrumb a {
+            color: #666;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .breadcrumb a:hover {
+            color: #dc2626;
+        }
+
+        .breadcrumb span {
+            color: #1a1a1a;
+            font-weight: 600;
+        }
+
+        .service-content-section {
+            padding: 4rem 4rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        .main-content h2 {
+            font-size: 2.2rem;
+            color: #1a1a1a;
+            margin-bottom: 1.5rem;
+            margin-top: 2.5rem;
+        }
+
+        .main-content h2:first-child {
+            margin-top: 0;
+        }
+
+        .main-content p {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            color: #555;
+            margin-bottom: 1.5rem;
+        }
+
+        .main-content ul {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+
+        .main-content ul li {
+            padding: 1rem 0;
+            border-bottom: 1px solid #f0f0f0;
+            color: #444;
+            font-size: 1.05rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .main-content ul li:last-child {
+            border-bottom: none;
+        }
+
+        .main-content ul li::before {
+            content: "✓";
+            color: #dc2626;
+            font-weight: bold;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+
+        /* Image Gallery */
+        .image-gallery {
+            margin: 3rem 0;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .gallery-item {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.03);
+            box-shadow: 0 10px 30px rgba(220, 38, 38, 0.2);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Video Section */
+        .video-section {
+            margin: 3rem 0;
+            background: #fafafa;
+            padding: 2rem;
+            border-radius: 15px;
+        }
+
+        .video-section h3 {
+            font-size: 1.5rem;
+            color: #1a1a1a;
+            margin-bottom: 1.5rem;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 10px;
+            background: #000;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            position: sticky;
+            top: 120px;
+            height: fit-content;
+        }
+
+        .info-box {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            border: 2px solid #f0f0f0;
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .info-box:hover {
+            border-color: #dc2626;
+            box-shadow: 0 5px 20px rgba(220, 38, 38, 0.1);
+        }
+
+        .info-box h3 {
+            font-size: 1.4rem;
+            color: #1a1a1a;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #dc2626;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.2rem;
+            padding: 0.8rem;
+            border-radius: 8px;
+            transition: background 0.3s ease;
+        }
+
+        .info-item:hover {
+            background: #fef2f2;
+        }
+
+        .info-item .icon {
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .info-item .text {
+            flex: 1;
+        }
+
+        .info-item .label {
+            font-size: 0.85rem;
+            color: #666;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+
+        .info-item .value {
+            font-size: 1rem;
+            color: #1a1a1a;
+            font-weight: 600;
+        }
+
+        .cta-box {
+            background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+            color: white;
+            padding: 2.5rem 2rem;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .cta-box h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-box p {
+            margin-bottom: 1.5rem;
+            opacity: 0.95;
+        }
+
+        .cta-box .cta-button {
+            background: white;
+            color: #dc2626;
+            border-color: white;
+        }
+
+        .cta-box .cta-button:hover {
+            background: #fef2f2;
+            transform: translateY(-3px);
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            border: 2px solid #f0f0f0;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: #dc2626;
+            box-shadow: 0 10px 30px rgba(220, 38, 38, 0.1);
+        }
+
+        .feature-card .icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h4 {
+            font-size: 1.2rem;
+            color: #1a1a1a;
+            margin-bottom: 0.8rem;
+        }
+
+        .feature-card p {
+            font-size: 0.95rem;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 1024px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                position: static;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .service-detail-hero {
+                padding: 3rem 2rem;
+            }
+
+            .service-detail-hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .service-detail-hero .icon {
+                font-size: 3.5rem;
+            }
+
+            .breadcrumb,
+            .service-content-section {
+                padding: 1.5rem 2rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="assets/icon.ico" alt="Hospital Logo">
+        </div>
+        <h1 class="hospital-name">Darul Shifa Imam Khomeini Hospital Quetta</h1>
+        <nav>
+            <a href="index.html">
+                <span class="nav-icon"></span>
+                Home
+            </a>
+            <a href="services.html">
+                <span class="nav-icon"></span>
+                Services
+            </a>
+            <a href="doctors.html">
+                <span class="nav-icon"></span>
+                Our Doctors
+            </a>
+            <a href="appointment.html">
+                <span class="nav-icon"></span>
+                Book Appointment
+            </a>
+            <a href="contact.html">
+                <span class="nav-icon"></span>
+                Contact
+            </a>
+            <a href="about.html">
+                <span class="nav-icon"></span>
+                About Us
+            </a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="service-detail-hero">
+        <div class="icon">🏥</div>
+        <h1>Operation Theatre Services</h1>
+        <p>State-of-the-art surgical facilities equipped with the latest technology and staffed by highly skilled medical professionals</p>
+    </section>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <a href="index.html">Home</a> / <a href="services.html">Services</a> / <span>Operation Theatre</span>
+    </div>
+
+    <!-- Main Content -->
+    <section class="service-content-section">
+        <div class="content-grid">
+            <!-- Main Content -->
+            <div class="main-content">
+                <h2>World-Class Surgical Care</h2>
+                <p>
+                    At Darul Shifa Imam Khomeini Hospital, our Operation Theatre (OT) is designed to provide the highest standards of surgical care. We have invested in cutting-edge medical technology and equipment to ensure that every surgical procedure is performed with precision, safety, and the best possible outcomes for our patients.
+                </p>
+                <p>
+                    Our OT complex consists of multiple fully-equipped operation rooms, each maintained under strict sterile conditions. Every detail has been carefully considered to create an optimal setting for surgical excellence.
+                </p>
+
+                <h2>Our Surgical Capabilities</h2>
+                <ul>
+                    <li>General Surgery - Appendectomy, hernia repairs, gallbladder surgery, and more</li>
+                    <li>Orthopedic Surgery - Joint replacements, fracture fixations, spine surgery</li>
+                    <li>Gynecological Surgery - C-sections, hysterectomy, and other procedures</li>
+                    <li>Urological Surgery - Kidney stone removal, prostate surgery</li>
+                    <li>ENT Surgery - Tonsillectomy, sinus surgery, ear procedures</li>
+                    <li>Emergency Surgery - 24/7 trauma and emergency surgical services</li>
+                    <li>Pediatric Surgery - Specialized care for young patients</li>
+                </ul>
+
+                <h2>Advanced Equipment & Technology</h2>
+                <p>
+                    Our operation theatres are equipped with the latest surgical instruments and monitoring systems. We utilize advanced anesthesia equipment with continuous patient monitoring, ensuring maximum safety throughout every procedure. High-definition surgical lights, modular OT tables, and modern cautery units are standard in all our operating rooms.
+                </p>
+
+                <!-- Features Grid -->
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="icon">🔬</div>
+                        <h4>Sterile Environment</h4>
+                        <p>HEPA filtration and laminar air flow systems maintain infection-free conditions</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon">💡</div>
+                        <h4>Advanced Monitoring</h4>
+                        <p>Real-time patient monitoring systems for maximum safety</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon">⚡</div>
+                        <h4>Modern Equipment</h4>
+                        <p>Latest surgical instruments and technology for precise procedures</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon">👨‍⚕️</div>
+                        <h4>Expert Surgeons</h4>
+                        <p>Highly qualified and experienced surgical teams</p>
+                    </div>
+                </div>
+
+                <h2>Pre & Post-Operative Care</h2>
+                <p>
+                    Our commitment to patient care extends beyond the operating room. We provide comprehensive pre-operative assessments to ensure patients are fully prepared for surgery, and our dedicated post-operative recovery rooms are staffed with skilled nurses who monitor patients closely as they recover from anesthesia.
+                </p>
+                <p>
+                    We maintain detailed protocols for infection prevention, pain management, and patient comfort. Our surgical team works closely with anesthesiologists, nurses, and support staff to create a seamless surgical experience from admission to discharge.
+                </p>
+
+                <!-- Image Gallery -->
+                <div class="image-gallery">
+                    <h2>Our Facilities</h2>
+                    <div class="gallery-grid">
+                        <div class="gallery-item">
+                            <img src="https://images.unsplash.com/photo-1551076805-e1869033e561?w=600&h=400&fit=crop" alt="Operation Theatre">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=600&h=400&fit=crop" alt="Surgical Equipment">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://images.unsplash.com/photo-1538108149393-fbbd81895907?w=600&h=400&fit=crop" alt="Medical Team">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?w=600&h=400&fit=crop" alt="Recovery Room">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video Section -->
+                <!-- <div class="video-section">
+                    <h3>🎥 Virtual Tour of Our Operation Theatre</h3>
+                    <div class="video-container">
+                        <iframe 
+                            src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    </div> -->
+                    <!-- <p style="margin-top: 1rem; color: #666; font-size: 0.95rem;">
+                        Take a virtual tour of our state-of-the-art operation theatre facilities and learn about our surgical procedures.
+                    </p>
+                </div> -->
+
+                <h2>Safety & Quality Standards</h2>
+                <p>
+                    Patient safety is our top priority. All our surgical procedures follow international protocols and guidelines. We maintain strict sterilization procedures, conduct regular equipment maintenance, and ensure our staff receives ongoing training in the latest surgical techniques and safety practices.
+                </p>
+                <p>
+                    Our infection control measures are comprehensive, including regular air quality monitoring, surface sterilization, and proper disposal of medical waste. We are committed to maintaining the highest standards of surgical care.
+                </p>
+            </div>
+
+            <div class="sidebar">
+                <div class="info-box">
+                    <h3>Quick Information</h3>
+                    <div class="info-item">
+                        <div class="icon">⏰</div>
+                        <div class="text">
+                            <span class="label">Availability</span>
+                            <span class="value">24/7 Emergency Surgery</span>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="icon">🏥</div>
+                        <div class="text">
+                            <span class="label">OT Rooms</span>
+                            <span class="value">1 Fully Equipped Theatres</span>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="icon">📞</div>
+                        <div class="text">
+                            <span class="label">Contact</span>
+                            <span class="value">0812857135</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CTA Box -->
+                <div class="cta-box">
+                    <h3>Need Surgery Consultation?</h3>
+                    <p>Our surgical team is here to help. Book a consultation today.</p>
+                    <a href="contact.html" class="cta-button">Book Appointment</a>
+                </div>
+
+                <!-- Related Services -->
+                <div class="info-box">
+                    <h3>Related Services</h3>
+                    <div class="info-item">
+                        <div class="icon">🚨</div>
+                        <div class="text">
+                            <a href="service-emergency.html" style="color: #1a1a1a; text-decoration: none;">
+                                <span class="value">Emergency Care</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="icon">🔬</div>
+                        <div class="text">
+                            <a href="service-laboratory.html" style="color: #1a1a1a; text-decoration: none;">
+                                <span class="value">Laboratory Services</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="icon">📷</div>
+                        <div class="text">
+                            <a href="service-radiology.html" style="color: #1a1a1a; text-decoration: none;">
+                                <span class="value">Radiology & Imaging</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Emergency Banner -->
+    <div class="emergency-banner">
+        24/7 Emergency Services Available | Call: 0812857135
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-tagline">
+            <span>WE CARE, WE CAN</span>
+        </div>
+        
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Get In Touch</h3>
+                <ul>
+                    <li>📍
+                        <br> Block 3, Hazara Town, Brewery Road, Quetta</li>
+                    <li>📞 
+                        <br>
+                        0812857135</li>
+                    <li>🚨
+                        <br>
+                         Emergency: 0812857135</li>
+                    <li>✉️
+                        <br>
+                        info@darulshifaimamkhomeini.org</li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="doctors.html">Our Doctors</a></li>
+                    <li><a href="appointment.html">Book Appointment</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Patient Resources</h3>
+                <ul>
+                    <li><a href="appointment.html">Book Appointment</a></li>
+                    <li><a href="doctors.html">Find a Doctor</a></li>
+                    <li><a href="contact.html">Visitor Information</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Working Hours</h3>
+                <ul>
+                    <li style="margin-top: 1rem; font-weight: 600;">Emergency: 24/7</li>
+                </ul>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+
+               <div class="social-icons">
+    <a href="https://www.facebook.com/khomeinihospital?rdid=ra0D2SRpHIDt6o68&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F16sgqDwKvC%2F#" title="Facebook">
+        <img src="assets/facebook-removebg-preview.png" alt="Facebook">
+    </a>
+    <a href="https://www.tiktok.com/@khomeinihospital0ffical?_r=1&_t=ZS-93Mxgcx8GXc" title="Tik Tok">
+        <img src="assets/images-removebg-preview.png" alt="TikTok">
+    </a>
+    <a href="https://www.instagram.com/khomeinihospital0fficial?igsh=MW5pd2R4MTVvZm0xOA%3D%3D" title="Instagram">
+        <img src="assets/instgram-removebg-preview.png" alt="Instagram">
+    </a>
+</div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p style="margin-bottom: 0.5rem;">&copy; 2026 Darul Shifa Imam Khomeini Hospital Quetta. All rights reserved.</p>
+            <p>Committed to Excellence in Healthcare</p>
+            <p>Made by Inam Ali Soomro</p>
+        </div>
+    </footer>
+</body>
+</html>

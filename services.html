@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - Darul Shifa Imam Khomeini Hospital</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Services Page Specific Styles */
+        .services-hero {
+            margin-top: 100px;
+            padding: 4rem 4rem 2rem;
+            background: linear-gradient(135deg, #fafafa 0%, #ffffff 100%);
+            text-align: center;
+        }
+
+        .services-hero h1 {
+            font-size: 3rem;
+            color: #1a1a1a;
+            margin-bottom: 1rem;
+        }
+
+        .services-hero p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .services-container {
+            padding: 3rem 4rem 6rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 15px;
+            border: 2px solid #f0f0f0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+            display: block;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(220, 38, 38, 0.2);
+            border-color: #dc2626;
+        }
+
+        .service-header {
+            padding: 2.5rem 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            background: #fafafa;
+            transition: all 0.3s ease;
+            min-height: 250px;
+            justify-content: center;
+        }
+
+        .service-card:hover .service-header {
+            background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+        }
+
+        .service-icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover .service-icon {
+            transform: scale(1.2);
+        }
+
+        .service-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            transition: color 0.3s ease;
+            margin-bottom: 0.8rem;
+        }
+
+        .service-card:hover .service-title {
+            color: white;
+        }
+
+        .service-tagline {
+            font-size: 1rem;
+            color: #666;
+            transition: color 0.3s ease;
+            line-height: 1.6;
+        }
+
+        .service-card:hover .service-tagline {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .service-arrow {
+            margin-top: 1rem;
+            font-size: 1.5rem;
+            color: #dc2626;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover .service-arrow {
+            color: white;
+            transform: translateX(5px);
+        }
+
+        @media (max-width: 768px) {
+            .services-hero {
+                padding: 3rem 2rem 1rem;
+            }
+
+            .services-hero h1 {
+                font-size: 2rem;
+            }
+
+            .services-container {
+                padding: 2rem 1rem 4rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .service-header {
+                padding: 2rem 1.5rem;
+                min-height: 220px;
+            }
+
+            .service-title {
+                font-size: 1.3rem;
+            }
+
+            .service-icon {
+                font-size: 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="icon.ico" alt="Hospital Logo">
+        </div>
+        <h1 class="hospital-name">Darul Shifa Imam Khomeini Hospital Quetta</h1>
+        <nav>
+            <a href="index.html">
+                <span class="nav-icon"></span>
+                Home
+            </a>
+            <a href="services.html">
+                <span class="nav-icon"></span>
+                Services
+            </a>
+            <a href="doctors.html">
+                <span class="nav-icon"></span>
+                Our Doctors
+            </a>
+            <a href="appointment.html">
+                <span class="nav-icon"></span>
+                Book Appointment
+            </a>
+            <a href="contact.html">
+                <span class="nav-icon"></span>
+                Contact
+            </a>
+            <a href="about.html">
+                <span class="nav-icon"></span>
+                About Us
+            </a>
+        </nav>
+    </header>
+
+    <section class="services-hero">
+        <h1>Our Medical Services</h1>
+        <p>Comprehensive healthcare solutions with state-of-the-art facilities and experienced medical professionals dedicated to your wellbeing.</p>
+    </section>
+
+    <div class="services-container">
+        <div class="services-grid">
+            <!-- Operation Theatre -->
+            <a href="service-ot.html" class="service-card">
+                <div class="service-header">
+                    <div class="service-icon">🏥</div>
+                    <h2 class="service-title">Operation Theatre</h2>
+                    <p class="service-tagline">State-of-the-art surgical facilities with expert teams available 24/7</p>
+                    <div class="service-arrow">→</div>
+                </div>
+            </a>
+
+            <!-- Laboratory Services -->
+            <a href="service-laboratory.html" class="service-card">
+                <div class="service-header">
+                    <div class="service-icon">🔬</div>
+                    <h2 class="service-title">Laboratory Services</h2>
+                    <p class="service-tagline">Advanced diagnostic testing with accurate and timely results</p>
+                    <div class="service-arrow">→</div>
+                </div>
+            </a>
+
+            <!-- Emergency Care -->
+            <a href="service-emergency.html" class="service-card">
+                <div class="service-header">
+                    <div class="service-icon">🚨</div>
+                    <h2 class="service-title">Emergency Care</h2>
+                    <p class="service-tagline">Round-the-clock emergency services with rapid response teams</p>
+                    <div class="service-arrow">→</div>
+                </div>
+            </a>
+
+            <!-- Radiology & Imaging -->
+            <a href="service-radiology.html" class="service-card">
+                <div class="service-header">
+                    <div class="service-icon">📷</div>
+                    <h2 class="service-title">Radiology & Imaging</h2>
+                    <p class="service-tagline">Advanced imaging technology for accurate diagnosis</p>
+                    <div class="service-arrow">→</div>
+                </div>
+            </a>
+
+            <!-- Cardiology -->
+            <!-- <a href="service-cardiology.html" class="service-card">
+                <div class="service-header">
+                    <div class="service-icon">❤️</div>
+                    <h2 class="service-title">Cardiology</h2>
+                    <p class="service-tagline">Comprehensive cardiac care with experienced specialists</p>
+                    <div class="service-arrow">→</div>
+                </div>
+            </a> -->
+
+            <!-- General Medicine -->
+            <!-- <a href="service-general-medicine.html" class="service-card">
+                <div class="service-header">
+                    <div class="service-icon">💊</div>
+                    <h2 class="service-title">General Medicine</h2>
+                    <p class="service-tagline">Primary healthcare for all your medical needs</p>
+                    <div class="service-arrow">→</div>
+                </div> -->
+            </a>
+
+            <!-- Maternity & Gynecology -->
+            <a href="service-maternity.html" class="service-card">
+                <div class="service-header">
+                    <div class="service-icon">👶</div>
+                    <h2 class="service-title">Maternity & Gynecology</h2>
+                    <p class="service-tagline">Complete maternal and women's health services</p>
+                    <div class="service-arrow">→</div>
+                </div>
+            </a>
+
+            <!-- Pharmacy -->
+            <a href="service-pharmacy.html" class="service-card">
+                <div class="service-header">
+                    <div class="service-icon">💉</div>
+                    <h2 class="service-title">Pharmacy</h2>
+                    <p class="service-tagline">24/7 pharmacy with quality medications and expert advice</p>
+                    <div class="service-arrow">→</div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <!-- Emergency Banner -->
+    <div class="emergency-banner">
+        24/7 Emergency Services Available | Call: 0812857135
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-tagline">
+            <span>WE CARE, WE CAN</span>
+        </div>
+        
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Get In Touch</h3>
+                <ul>
+                    <li>📍
+                        <br> Block 3, Hazara Town, Brewery Road, Quetta</li>
+                    <li>📞 
+                        <br>
+                        0812857135</li>
+                    <li>🚨
+                        <br>
+                         Emergency: 0812857135</li>
+                    <li>✉️
+                        <br>
+                        info@darulshifaimamkhomeini.org</li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="doctors.html">Our Doctors</a></li>
+                    <li><a href="appointment.html">Book Appointment</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Patient Resources</h3>
+                <ul>
+                    <li><a href="appointment.html">Book Appointment</a></li>
+                    <li><a href="doctors.html">Find a Doctor</a></li>
+                    <li><a href="contact.html">Visitor Information</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Working Hours</h3>
+                <ul>
+                    <li style="margin-top: 1rem; font-weight: 600;">Emergency: 24/7</li>
+                </ul>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+ <div class="social-icons">
+    <a href="https://www.facebook.com/khomeinihospital?rdid=ra0D2SRpHIDt6o68&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F16sgqDwKvC%2F#" title="Facebook">
+        <img src="assets/facebook-removebg-preview.png" alt="Facebook">
+    </a>
+    <a href="https://www.tiktok.com/@khomeinihospital0ffical?_r=1&_t=ZS-93Mxgcx8GXc" title="Tik Tok">
+        <img src="assets/images-removebg-preview.png" alt="TikTok">
+    </a>
+    <a href="https://www.instagram.com/khomeinihospital0fficial?igsh=MW5pd2R4MTVvZm0xOA%3D%3D" title="Instagram">
+        <img src="assets/instgram-removebg-preview.png" alt="Instagram">
+    </a>
+</div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p style="margin-bottom: 0.5rem;">&copy; 2026 Darul Shifa Imam Khomeini Hospital Quetta. All rights reserved.</p>
+            <p>Committed to Excellence in Healthcare</p>
+            <p>Made by Inam Ali Soomro</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
