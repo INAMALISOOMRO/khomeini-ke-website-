@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Doctors - Darul Shifa Imam Khomeini Hospital</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .doctors-hero {
+            margin-top: 100px;
+            padding: 4rem 4rem 2rem;
+            background: linear-gradient(135deg, #fafafa 0%, #ffffff 100%);
+            text-align: center;
+        }
+
+        .doctors-hero h1 {
+            font-size: 3rem;
+            color: #1a1a1a;
+            margin-bottom: 1rem;
+        }
+
+        .doctors-hero p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .doctors-container {
+            padding: 3rem 4rem 6rem;
+            max-width: 2000px;
+            margin: 0 auto;
+        }
+
+        .doctors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .doctor-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 2px solid #f0f0f0;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .doctor-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 50px rgba(220, 38, 38, 0.2);
+            border-color: #dc2626;
+        }
+
+        .doctor-image-wrapper {
+            width: 100%;
+            height: 400px;
+            overflow: hidden;
+            background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
+            position: relative;
+        }
+
+        .doctor-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .doctor-card:hover .doctor-image {
+            transform: scale(1.08);
+        }
+
+        .doctor-specialty-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(220, 38, 38, 0.95);
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 15px rgba(220, 38, 38, 0.3);
+        }
+
+        .doctor-info {
+            padding: 2rem;
+        }
+
+        .doctor-name {
+            font-size: 1.7rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+        }
+
+        .doctor-title {
+            font-size: 1.1rem;
+            color: #dc2626;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .doctor-education {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 1.2rem;
+            padding: 0.8rem;
+            background: #f8f8f8;
+            border-radius: 8px;
+            border-left: 4px solid #dc2626;
+        }
+
+        .doctor-description {
+            font-size: 0.98rem;
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .view-profile-btn {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            background: #dc2626;
+            color: white;
+            text-decoration: none;
+            text-align: center;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            border: 2px solid #dc2626;
+        }
+
+        .view-profile-btn:hover {
+            background: white;
+            color: #dc2626;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(220, 38, 38, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .doctors-hero {
+                padding: 3rem 2rem 1rem;
+            }
+
+            .doctors-hero h1 {
+                font-size: 2rem;
+            }
+
+            .doctors-container {
+                padding: 2rem 1rem 4rem;
+            }
+
+            .doctors-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .doctor-image-wrapper {
+                height: 350px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="icon.ico" alt="Hospital Logo">
+        </div>
+        <h1 class="hospital-name">Darul Shifa Imam Khomeini Hospital Quetta</h1>
+        <nav>
+            <a href="index.html">
+                <span class="nav-icon"></span>
+                Home
+            </a>
+            <a href="services.html">
+                <span class="nav-icon"></span>
+                Services
+            </a>
+            <a href="doctors.html">
+                <span class="nav-icon"></span>
+                Our Doctors
+            </a>
+            <a href="appointment.html">
+                <span class="nav-icon"></span>
+                Book Appointment
+            </a>
+            <a href="contact.html">
+                <span class="nav-icon"></span>
+                Contact
+            </a>
+            <a href="about.html">
+                <span class="nav-icon"></span>
+                About Us
+            </a>
+        </nav>
+    </header>
+
+    <section class="doctors-hero">
+        <h1>Meet Our Expert Medical Team</h1>
+        <p>Our experienced doctors are dedicated to providing exceptional healthcare with compassion and expertise</p>
+    </section>
+
+    <div class="doctors-container">
+        <div class="doctors-grid">
+            <!-- Doctor Card 1 -->
+            <div class="doctor-card" onclick="window.location.href='doctor-detail.html?id=1'">
+                <div class="doctor-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=600&h=800&fit=crop" alt="Dr. Ahmed Khan" class="doctor-image">
+                    <div class="doctor-specialty-badge">Cardiology</div>
+                </div>
+                <div class="doctor-info">
+                    <h2 class="doctor-name">Dr. Ahmed Khan</h2>
+                    <p class="doctor-title">Senior Consultant Cardiologist</p>
+                    <p class="doctor-education">MBBS, FCPS (Cardiology), MRCP (UK)</p>
+                    <p class="doctor-description">
+                        With over 15 years of experience in cardiology, Dr. Ahmed Khan specializes in interventional cardiology and has performed over 2000 successful cardiac procedures. He is known for his patient-centered approach and expertise in complex heart conditions.
+                    </p>
+                    <a href="doctor-detail.html?id=1" class="view-profile-btn">View Full Profile →</a>
+                </div>
+            </div>
+
+            <!-- Doctor Card 2 -->
+            <div class="doctor-card" onclick="window.location.href='doctor-detail.html?id=2'">
+                <div class="doctor-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=600&h=800&fit=crop" alt="Dr. Fatima Ali" class="doctor-image">
+                    <div class="doctor-specialty-badge">Gynecology</div>
+                </div>
+                <div class="doctor-info">
+                    <h2 class="doctor-name">Dr. Fatima Ali</h2>
+                    <p class="doctor-title">Consultant Obstetrician & Gynecologist</p>
+                    <p class="doctor-education">MBBS, FCPS (Obs & Gynae), MRCOG</p>
+                    <p class="doctor-description">
+                        Dr. Fatima Ali is a highly experienced gynecologist with expertise in high-risk pregnancies and minimally invasive gynecological surgeries. She has successfully handled over 3000 deliveries and is passionate about women's health.
+                    </p>
+                    <a href="doctor-detail.html?id=2" class="view-profile-btn">View Full Profile →</a>
+                </div>
+            </div>
+
+            <!-- Doctor Card 3 -->
+            <div class="doctor-card" onclick="window.location.href='doctor-detail.html?id=3'">
+                <div class="doctor-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=600&h=800&fit=crop" alt="Dr. Hassan Baloch" class="doctor-image">
+                    <div class="doctor-specialty-badge">General Surgery</div>
+                </div>
+                <div class="doctor-info">
+                    <h2 class="doctor-name">Dr. Hassan Baloch</h2>
+                    <p class="doctor-title">Senior Consultant General Surgeon</p>
+                    <p class="doctor-education">MBBS, FCPS (Surgery), FRCS</p>
+                    <p class="doctor-description">
+                        Dr. Hassan Baloch is an expert general surgeon specializing in laparoscopic and minimally invasive procedures. With 20 years of surgical experience, he has performed thousands of successful operations with excellent patient outcomes.
+                    </p>
+                    <a href="doctor-detail.html?id=3" class="view-profile-btn">View Full Profile →</a>
+                </div>
+            </div>
+
+            <!-- Doctor Card 4 -->
+            <div class="doctor-card" onclick="window.location.href='doctor-detail.html?id=4'">
+                <div class="doctor-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=600&h=800&fit=crop" alt="Dr. Sara Ahmed" class="doctor-image">
+                    <div class="doctor-specialty-badge">Pediatrics</div>
+                </div>
+                <div class="doctor-info">
+                    <h2 class="doctor-name">Dr. Sara Ahmed</h2>
+                    <p class="doctor-title">Consultant Pediatrician</p>
+                    <p class="doctor-education">MBBS, FCPS (Pediatrics), MRCPCH</p>
+                    <p class="doctor-description">
+                        Dr. Sara Ahmed is a compassionate pediatrician with special interest in neonatal care and child development. She creates a friendly environment for children and provides comprehensive care from newborns to adolescents.
+                    </p>
+                    <a href="doctor-detail.html?id=4" class="view-profile-btn">View Full Profile →</a>
+                </div>
+            </div>
+
+            <!-- Doctor Card 5 -->
+            <div class="doctor-card" onclick="window.location.href='doctor-detail.html?id=5'">
+                <div class="doctor-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?w=600&h=800&fit=crop" alt="Dr. Mohammad Yousaf" class="doctor-image">
+                    <div class="doctor-specialty-badge">Orthopedics</div>
+                </div>
+                <div class="doctor-info">
+                    <h2 class="doctor-name">Dr. Mohammad Yousaf</h2>
+                    <p class="doctor-title">Consultant Orthopedic Surgeon</p>
+                    <p class="doctor-education">MBBS, FCPS (Orthopedics), FRCS</p>
+                    <p class="doctor-description">
+                        Dr. Mohammad Yousaf specializes in joint replacement surgeries and sports medicine. He uses the latest techniques in orthopedic surgery and has helped thousands of patients regain mobility and quality of life.
+                    </p>
+                    <a href="doctor-detail.html?id=5" class="view-profile-btn">View Full Profile →</a>
+                </div>
+            </div>
+
+            <!-- Doctor Card 6 -->
+            <div class="doctor-card" onclick="window.location.href='doctor-detail.html?id=6'">
+                <div class="doctor-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=600&h=800&fit=crop" alt="Dr. Ayesha Malik" class="doctor-image">
+                    <div class="doctor-specialty-badge">Internal Medicine</div>
+                </div>
+                <div class="doctor-info">
+                    <h2 class="doctor-name">Dr. Ayesha Malik</h2>
+                    <p class="doctor-title">Consultant Physician</p>
+                    <p class="doctor-education">MBBS, FCPS (Medicine), MRCP</p>
+                    <p class="doctor-description">
+                        Dr. Ayesha Malik is an experienced physician specializing in diabetes, hypertension, and chronic disease management. She believes in preventive medicine and works closely with patients to improve their overall health and wellbeing.
+                    </p>
+                    <a href="doctor-detail.html?id=6" class="view-profile-btn">View Full Profile →</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="emergency-banner">
+        24/7 Emergency Services Available | Call: 0812857135
+    </div>
+
+    <footer>
+        <div class="footer-tagline">
+            <span>WE CARE, WE CAN</span>
+        </div>
+        
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Get In Touch</h3>
+                <ul>
+                    <li>📍<br> Block 3, Hazara Town, Brewery Road, Quetta</li>
+                    <li>📞<br>0812857135</li>
+                    <li>🚨<br>Emergency: 0812857135</li>
+                    <li>✉️<br>info@darulshifaimamkhomeini.org</li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="doctors.html">Our Doctors</a></li>
+                    <li><a href="appointment.html">Book Appointment</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Patient Resources</h3>
+                <ul>
+                    <li><a href="appointment.html">Book Appointment</a></li>
+                    <li><a href="doctors.html">Find a Doctor</a></li>
+                    <li><a href="contact.html">Visitor Information</a>
+</li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Working Hours</h3>
+                <ul>
+                    <li style="margin-top: 1rem; font-weight: 600;">Emergency: 24/7</li>
+                </ul>
+                <br><br><br><br><br>
+                <div class="social-icons">
+                    <a href="#" title="Facebook">✓</a>
+                    <a href="#" title="YouTube">✓</a>
+                    <a href="#" title="LinkedIn">✓</a>
+                    <a href="#" title="Instagram">✓</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p style="margin-bottom: 0.5rem;">&copy; 2026 Darul Shifa Imam Khomeini Hospital Quetta. All rights reserved.</p>
+            <p>Committed to Excellence in Healthcare</p>
+            <p>Made by Inam Ali Soomro</p>
+        </div>
+    </footer>
+</body>
+</html>

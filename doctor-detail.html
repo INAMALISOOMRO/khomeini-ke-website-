@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Profile - Darul Shifa Hospital</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .doctor-detail-hero {
+            margin-top: 100px;
+            padding: 2rem 4rem;
+            background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+            color: white;
+        }
+
+        .breadcrumb {
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+        }
+
+        .breadcrumb a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .breadcrumb a:hover {
+            opacity: 0.7;
+        }
+
+        .doctor-detail-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 4rem 4rem;
+        }
+
+        .doctor-profile-section {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            margin-bottom: 3rem;
+        }
+
+        .profile-header {
+            display: grid;
+            grid-template-columns: 400px 1fr;
+            gap: 3rem;
+            padding: 3rem;
+        }
+
+        .doctor-image-large {
+            width: 100%;
+            height: 500px;
+            border-radius: 15px;
+            object-fit: cover;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+        }
+
+        .doctor-header-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .specialty-badge {
+            display: inline-block;
+            background: #dc2626;
+            color: white;
+            padding: 0.6rem 1.5rem;
+            border-radius: 25px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            width: fit-content;
+        }
+
+        .doctor-name-large {
+            font-size: 3rem;
+            color: #1a1a1a;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .doctor-title-large {
+            font-size: 1.5rem;
+            color: #dc2626;
+            font-weight: 600;
+            margin-bottom: 2rem;
+        }
+
+        .quick-info {
+            background: #f8f8f8;
+            padding: 2rem;
+            border-radius: 12px;
+            border-left: 5px solid #dc2626;
+        }
+
+        .quick-info-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.2rem;
+            font-size: 1.05rem;
+        }
+
+        .quick-info-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .info-icon {
+            font-size: 1.5rem;
+            width: 40px;
+            text-align: center;
+        }
+
+        .info-label {
+            font-weight: 600;
+            color: #1a1a1a;
+            min-width: 120px;
+        }
+
+        .info-value {
+            color: #555;
+        }
+
+        .content-section {
+            padding: 3rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            color: #1a1a1a;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 3px solid #dc2626;
+        }
+
+        .section-content {
+            font-size: 1.1rem;
+            line-height: 2;
+            color: #555;
+            margin-bottom: 2rem;
+        }
+
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .expertise-card {
+            background: #f8f8f8;
+            padding: 1.5rem;
+            border-radius: 12px;
+            border-left: 4px solid #dc2626;
+            transition: all 0.3s ease;
+        }
+
+        .expertise-card:hover {
+            transform: translateX(8px);
+            box-shadow: 0 5px 20px rgba(220, 38, 38, 0.15);
+        }
+
+        .expertise-card h4 {
+            font-size: 1.2rem;
+            color: #1a1a1a;
+            margin-bottom: 0.5rem;
+        }
+
+        .expertise-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .achievements-list {
+            list-style: none;
+            margin: 2rem 0;
+        }
+
+        .achievements-list li {
+            padding: 1.2rem 1.5rem;
+            background: #f8f8f8;
+            margin-bottom: 1rem;
+            border-radius: 10px;
+            border-left: 4px solid #dc2626;
+            font-size: 1.05rem;
+            color: #555;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .achievements-list li::before {
+            content: "🏆";
+            font-size: 1.5rem;
+        }
+
+        .appointment-cta {
+            background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+            padding: 3rem;
+            border-radius: 15px;
+            text-align: center;
+            color: white;
+            margin-top: 3rem;
+        }
+
+        .appointment-cta h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .appointment-cta p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .appointment-btn {
+            display: inline-block;
+            padding: 1.2rem 3rem;
+            background: white;
+            color: #dc2626;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            border: 3px solid white;
+        }
+
+        .appointment-btn:hover {
+            background: transparent;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            background: white;
+            color: #1a1a1a;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-bottom: 2rem;
+            border: 2px solid #e0e0e0;
+        }
+
+        .back-btn:hover {
+            background: #dc2626;
+            color: white;
+            border-color: #dc2626;
+            transform: translateX(-5px);
+        }
+
+        @media (max-width: 1024px) {
+            .profile-header {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .doctor-image-large {
+                height: 400px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .doctor-detail-hero,
+            .doctor-detail-container,
+            .content-section {
+                padding: 2rem 1.5rem;
+            }
+
+            .doctor-name-large {
+                font-size: 2rem;
+            }
+
+            .doctor-title-large {
+                font-size: 1.2rem;
+            }
+
+            .expertise-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .profile-header {
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="icon.ico" alt="Hospital Logo">
+        </div>
+        <h1 class="hospital-name">Darul Shifa Imam Khomeini Hospital Quetta</h1>
+        <nav>
+            <a href="index.html">
+                <span class="nav-icon"></span>
+                Home
+            </a>
+            <a href="services.html">
+                <span class="nav-icon"></span>
+                Services
+            </a>
+            <a href="doctors.html">
+                <span class="nav-icon"></span>
+                Our Doctors
+            </a>
+            <a href="appointment.html">
+                <span class="nav-icon"></span>
+                Book Appointment
+            </a>
+            <a href="contact.html">
+                <span class="nav-icon"></span>
+                Contact
+            </a>
+            <a href="about.html">
+                <span class="nav-icon"></span>
+                About Us
+            </a>
+        </nav>
+    </header>
+
+    <section class="doctor-detail-hero">
+        <div class="breadcrumb">
+            <a href="index.html">Home</a> / <a href="doctors.html">Our Doctors</a> / <span id="doctorNameBreadcrumb">Doctor Profile</span>
+        </div>
+    </section>
+
+    <div class="doctor-detail-container">
+        <a href="doctors.html" class="back-btn">← Back to All Doctors</a>
+
+        <div class="doctor-profile-section">
+            <div class="profile-header">
+                <img id="doctorImage" src="" alt="Doctor" class="doctor-image-large">
+                <div class="doctor-header-info">
+                    <span id="specialtyBadge" class="specialty-badge">Cardiology</span>
+                    <h1 id="doctorName" class="doctor-name-large">Dr. Ahmed Khan</h1>
+                    <p id="doctorTitle" class="doctor-title-large">Senior Consultant Cardiologist</p>
+                    <div class="quick-info">
+                        <div class="quick-info-item">
+                            <span class="info-icon">🎓</span>
+                            <span class="info-label">Education:</span>
+                            <span id="doctorEducation" class="info-value">MBBS, FCPS</span>
+                        </div>
+                        <div class="quick-info-item">
+                            <span class="info-icon">💼</span>
+                            <span class="info-label">Experience:</span>
+                            <span id="doctorExperience" class="info-value">15+ Years</span>
+                        </div>
+                        <div class="quick-info-item">
+                            <span class="info-icon">🏥</span>
+                            <span class="info-label">Department:</span>
+                            <span id="doctorDepartment" class="info-value">Cardiology</span>
+                        </div>
+                        <div class="quick-info-item">
+                            <span class="info-icon">📞</span>
+                            <span class="info-label">Hospital:</span>
+                            <span class="info-value">0812857135</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2 class="section-title">About the Doctor</h2>
+                <p id="aboutDoctor" class="section-content">
+                    <!-- Content will be loaded by JavaScript -->
+                </p>
+
+                <h2 class="section-title">Areas of Expertise</h2>
+                <div id="expertiseGrid" class="expertise-grid">
+                    <!-- Content will be loaded by JavaScript -->
+                </div>
+
+                <h2 class="section-title">Achievements & Recognition</h2>
+                <ul id="achievementsList" class="achievements-list">
+                    <!-- Content will be loaded by JavaScript -->
+                </ul>
+
+                <div class="appointment-cta">
+                    <h3>Book an Appointment</h3>
+                    <p>Schedule your consultation with <span id="doctorNameCTA">our doctor</span> today</p>
+                    <a href="appointment.html" class="appointment-btn">Book Appointment Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="emergency-banner">
+        24/7 Emergency Services Available | Call: 0812857135
+    </div>
+
+    <footer>
+        <div class="footer-tagline">
+            <span>WE CARE, WE CAN</span>
+        </div>
+        
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Get In Touch</h3>
+                <ul>
+                    <li>📍<br> Block 3, Hazara Town, Brewery Road, Quetta</li>
+                    <li>📞<br>0812857135</li>
+                    <li>🚨<br>Emergency: 0812857135</li>
+                    <li>✉️<br>info@darulshifaimamkhomeini.org</li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="doctors.html">Our Doctors</a></li>
+                    <li><a href="appointment.html">Book Appointment</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Patient Resources</h3>
+                <ul>
+                    <li><a href="appointment.html">Book Appointment</a></li>
+                    <li><a href="doctors.html">Find a Doctor</a></li>
+                    <li><a href="contact.html">Visitor Information</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Working Hours</h3>
+                <ul>
+                    <li style="margin-top: 1rem; font-weight: 600;">Emergency: 24/7</li>
+                </ul>
+                <br><br><br><br><br>
+                <div class="social-icons">
+                    <a href="#" title="Facebook">✓</a>
+                    <a href="#" title="YouTube">✓</a>
+                    <a href="#" title="LinkedIn">✓</a>
+                    <a href="#" title="Instagram">✓</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p style="margin-bottom: 0.5rem;">&copy; 2026 Darul Shifa Imam Khomeini Hospital Quetta. All rights reserved.</p>
+            <p>Committed to Excellence in Healthcare</p>
+            <p>Made by Inam Ali Soomro</p>
+        </div>
+    </footer>
+
+    <script>
+        // Doctor data
+        const doctors = {
+            '1': {
+                name: 'Dr. Ahmed Khan',
+                title: 'Senior Consultant Cardiologist',
+                specialty: 'Cardiology',
+                education: 'MBBS, FCPS (Cardiology), MRCP (UK)',
+                experience: '15+ Years',
+                image: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=600&h=800&fit=crop',
+                about: 'Dr. Ahmed Khan is a highly skilled cardiologist with over 15 years of experience in the field of cardiovascular medicine. He completed his MBBS from Aga Khan University and pursued his specialization in Cardiology (FCPS) from the College of Physicians and Surgeons Pakistan. He further enhanced his expertise with an MRCP from the United Kingdom. Dr. Khan has a special interest in interventional cardiology and has performed over 2000 successful cardiac procedures. He is known for his patient-centered approach, taking time to explain complex cardiac conditions in simple terms. His dedication to staying updated with the latest advancements in cardiology ensures that his patients receive the most modern and effective treatments available.',
+                expertise: [
+                    { title: 'Interventional Cardiology', desc: 'Expert in angioplasty, stenting, and cardiac catheterization procedures' },
+                    { title: 'Heart Failure Management', desc: 'Comprehensive care for patients with chronic heart failure' },
+                    { title: 'Hypertension Treatment', desc: 'Specialized management of high blood pressure and related complications' },
+                    { title: 'Cardiac Imaging', desc: 'Proficient in echocardiography and stress testing interpretation' }
+                ],
+                achievements: [
+                    'Performed over 2000 successful cardiac catheterization procedures',
+                    'Published 15+ research papers in international cardiology journals',
+                    'Awarded "Best Cardiologist" by Pakistan Medical Association (2022)',
+                    'Regular speaker at national and international cardiology conferences',
+                    'Member of American College of Cardiology (ACC)'
+                ]
+            },
+            '2': {
+                name: 'Dr. Fatima Ali',
+                title: 'Consultant Obstetrician & Gynecologist',
+                specialty: 'Gynecology',
+                education: 'MBBS, FCPS (Obs & Gynae), MRCOG',
+                experience: '12+ Years',
+                image: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=600&h=800&fit=crop',
+                about: 'Dr. Fatima Ali is a distinguished obstetrician and gynecologist dedicated to providing comprehensive women\'s healthcare. She completed her medical education from Dow University of Health Sciences and obtained her FCPS in Obstetrics & Gynecology. She further enhanced her qualifications with an MRCOG from the Royal College of Obstetricians and Gynaecologists, UK. With over 12 years of experience, Dr. Ali has successfully managed more than 3000 deliveries, including high-risk pregnancies. She specializes in minimally invasive gynecological surgeries and is passionate about promoting women\'s health awareness. Her compassionate approach and excellent communication skills make her highly respected among her patients.',
+                expertise: [
+                    { title: 'High-Risk Pregnancy', desc: 'Expert management of complicated pregnancies and maternal health' },
+                    { title: 'Laparoscopic Surgery', desc: 'Minimally invasive procedures for gynecological conditions' },
+                    { title: 'Infertility Treatment', desc: 'Comprehensive evaluation and treatment of fertility issues' },
+                    { title: 'Prenatal Care', desc: 'Complete antenatal care and fetal monitoring' }
+                ],
+                achievements: [
+                    'Successfully handled over 3000 deliveries including high-risk cases',
+                    'Pioneer in introducing minimally invasive gynecological procedures in the region',
+                    'Conducted numerous health awareness workshops for women',
+                    'Member of Pakistan Society of Obstetrics & Gynecology',
+                    'Received Excellence in Patient Care Award (2023)'
+                ]
+            },
+            '3': {
+                name: 'Dr. Hassan Baloch',
+                title: 'Senior Consultant General Surgeon',
+                specialty: 'General Surgery',
+                education: 'MBBS, FCPS (Surgery), FRCS',
+                experience: '20+ Years',
+                image: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=600&h=800&fit=crop',
+                about: 'Dr. Hassan Baloch is a veteran general surgeon with two decades of surgical excellence. He graduated from Bolan Medical College and completed his FCPS in General Surgery from CPSP. He pursued further training and obtained FRCS from the Royal College of Surgeons of Edinburgh. Dr. Baloch specializes in laparoscopic and minimally invasive surgical techniques, reducing patient recovery time and surgical complications. Throughout his illustrious career, he has performed thousands of successful operations ranging from routine procedures to complex surgical interventions. His expertise, precision, and patient-first approach have earned him recognition as one of the leading surgeons in the region.',
+                expertise: [
+                    { title: 'Laparoscopic Surgery', desc: 'Advanced minimally invasive surgical techniques' },
+                    { title: 'Emergency Surgery', desc: 'Expert handling of acute surgical emergencies' },
+                    { title: 'Hernia Repair', desc: 'Specialized in all types of hernia surgeries' },
+                    { title: 'GI Surgery', desc: 'Gastrointestinal and abdominal surgical procedures' }
+                ],
+                achievements: [
+                    'Performed over 5000 successful surgical procedures',
+                    'Introduced advanced laparoscopic techniques in Balochistan',
+                    'Trained more than 50 junior surgeons',
+                    'Fellow of Royal College of Surgeons Edinburgh (FRCS)',
+                    'Published extensively on surgical techniques and outcomes'
+                ]
+            },
+            '4': {
+                name: 'Dr. Sara Ahmed',
+                title: 'Consultant Pediatrician',
+                specialty: 'Pediatrics',
+                education: 'MBBS, FCPS (Pediatrics), MRCPCH',
+                experience: '10+ Years',
+                image: 'https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=600&h=800&fit=crop',
+                about: 'Dr. Sara Ahmed is a compassionate pediatrician with a special focus on child health and development. She completed her MBBS from Jinnah Sindh Medical University and her FCPS in Pediatrics from CPSP. She further trained in the UK and earned her MRCPCH (Member of Royal College of Paediatrics and Child Health). With over 10 years of experience, Dr. Ahmed has a gift for creating a comfortable, child-friendly environment that puts young patients at ease. She has special expertise in neonatal care, childhood vaccinations, and developmental pediatrics. Her holistic approach considers not just the child\'s physical health but also their emotional and developmental wellbeing.',
+                expertise: [
+                    { title: 'Neonatal Care', desc: 'Expert care for newborns and premature infants' },
+                    { title: 'Child Development', desc: 'Monitoring and supporting healthy child development' },
+                    { title: 'Vaccination Programs', desc: 'Complete immunization schedules and guidance' },
+                    { title: 'Pediatric Nutrition', desc: 'Nutritional counseling for children of all ages' }
+                ],
+                achievements: [
+                    'Established child-friendly consultation practices',
+                    'Conducted community vaccination drives reaching 5000+ children',
+                    'Active member of Pakistan Pediatric Association',
+                    'Published research on childhood nutrition and development',
+                    'Recipient of "Most Caring Pediatrician" award (2024)'
+                ]
+            },
+            '5': {
+                name: 'Dr. Mohammad Yousaf',
+                title: 'Consultant Orthopedic Surgeon',
+                specialty: 'Orthopedics',
+                education: 'MBBS, FCPS (Orthopedics), FRCS',
+                experience: '18+ Years',
+                image: 'https://images.unsplash.com/photo-1537368910025-700350fe46c7?w=600&h=800&fit=crop',
+                about: 'Dr. Mohammad Yousaf is a highly experienced orthopedic surgeon specializing in joint replacement surgeries and sports medicine. He obtained his medical degree from Khyber Medical University and completed his FCPS in Orthopedic Surgery. He further specialized by obtaining FRCS from Edinburgh. With 18 years of experience, Dr. Yousaf has helped thousands of patients regain mobility and quality of life through both surgical and non-surgical interventions. He is particularly known for his expertise in knee and hip replacement surgeries, having performed over 1000 successful joint replacements. His patient-centered approach emphasizes conservative treatment options before considering surgery.',
+                expertise: [
+                    { title: 'Joint Replacement', desc: 'Expert in knee and hip replacement surgeries' },
+                    { title: 'Sports Medicine', desc: 'Treatment of sports injuries and rehabilitation' },
+                    { title: 'Trauma Surgery', desc: 'Management of fractures and traumatic injuries' },
+                    { title: 'Arthroscopy', desc: 'Minimally invasive joint procedures' }
+                ],
+                achievements: [
+                    'Performed over 1000 successful joint replacement surgeries',
+                    'Sports medicine consultant for provincial sports teams',
+                    'Introduced advanced arthroscopic techniques in the region',
+                    'Fellow of Royal College of Surgeons (FRCS)',
+                    'Regular contributor to orthopedic medical journals'
+                ]
+            },
+            '6': {
+                name: 'Dr. Ayesha Malik',
+                title: 'Consultant Physician',
+                specialty: 'Internal Medicine',
+                education: 'MBBS, FCPS (Medicine), MRCP',
+                experience: '14+ Years',
+                image: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=600&h=800&fit=crop',
+                about: 'Dr. Ayesha Malik is an accomplished internal medicine specialist with extensive experience in managing complex medical conditions. She graduated from Liaquat National Medical College and completed her FCPS in Medicine from CPSP. She further enhanced her credentials with MRCP from the Royal College of Physicians, UK. With 14 years of clinical experience, Dr. Malik specializes in diabetes management, hypertension, and chronic disease care. She is a strong advocate for preventive medicine and lifestyle modifications. Her comprehensive approach to patient care includes not just treating illness but also educating patients about maintaining long-term health. She is known for her thorough consultations and evidence-based treatment approaches.',
+                expertise: [
+                    { title: 'Diabetes Management', desc: 'Comprehensive diabetes care and insulin therapy' },
+                    { title: 'Hypertension Control', desc: 'Expert management of high blood pressure' },
+                    { title: 'Preventive Medicine', desc: 'Health screening and disease prevention strategies' },
+                    { title: 'Chronic Disease Care', desc: 'Long-term management of medical conditions' }
+                ],
+                achievements: [
+                    'Established diabetes management clinic helping 2000+ patients',
+                    'Conducted numerous health awareness campaigns',
+                    'Member of Royal College of Physicians (MRCP)',
+                    'Published research on diabetes management in South Asian population',
+                    'Received Excellence in Internal Medicine Award (2023)'
+                ]
+            }
+        };
+
+        // Get doctor ID from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const doctorId = urlParams.get('id') || '1';
+        const doctor = doctors[doctorId];
+
+        if (doctor) {
+            // Update page content
+            document.getElementById('doctorNameBreadcrumb').textContent = doctor.name;
+            document.getElementById('doctorImage').src = doctor.image;
+            document.getElementById('doctorImage').alt = doctor.name;
+            document.getElementById('specialtyBadge').textContent = doctor.specialty;
+            document.getElementById('doctorName').textContent = doctor.name;
+            document.getElementById('doctorTitle').textContent = doctor.title;
+            document.getElementById('doctorEducation').textContent = doctor.education;
+            document.getElementById('doctorExperience').textContent = doctor.experience;
+            document.getElementById('doctorDepartment').textContent = doctor.specialty;
+            document.getElementById('aboutDoctor').textContent = doctor.about;
+            document.getElementById('doctorNameCTA').textContent = doctor.name;
+
+            // Update page title
+            document.title = `${doctor.name} - ${doctor.specialty} - Darul Shifa Hospital`;
+
+            // Populate expertise
+            const expertiseGrid = document.getElementById('expertiseGrid');
+            expertiseGrid.innerHTML = doctor.expertise.map(exp => `
+                <div class="expertise-card">
+                    <h4>${exp.title}</h4>
+                    <p>${exp.desc}</p>
+                </div>
+            `).join('');
+
+            // Populate achievements
+            const achievementsList = document.getElementById('achievementsList');
+            achievementsList.innerHTML = doctor.achievements.map(achievement => `
+                <li>${achievement}</li>
+            `).join('');
+        }
+    </script>
+</body>
+</html>
