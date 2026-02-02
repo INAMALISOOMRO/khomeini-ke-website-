@@ -299,7 +299,7 @@
 <body>
     <header>
         <div class="logo">
-            <img src="icon.ico" alt="Hospital Logo">
+            <img src="assets/icon.ico" alt="Hospital Logo">
         </div>
         <h1 class="hospital-name">Darul Shifa Imam Khomeini Hospital Quetta</h1>
         <nav>
@@ -441,12 +441,17 @@
                     <li style="margin-top: 1rem; font-weight: 600;">Emergency: 24/7</li>
                 </ul>
                 <br><br><br><br><br>
-                <div class="social-icons">
-                    <a href="#" title="Facebook">✓</a>
-                    <a href="#" title="YouTube">✓</a>
-                    <a href="#" title="LinkedIn">✓</a>
-                    <a href="#" title="Instagram">✓</a>
-                </div>
+                 <div class="social-icons">
+    <a href="https://www.facebook.com/khomeinihospital?rdid=ra0D2SRpHIDt6o68&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F16sgqDwKvC%2F#" title="Facebook">
+        <img src="assets/facebook-removebg-preview.png" alt="Facebook">
+    </a>
+    <a href="https://www.tiktok.com/@khomeinihospital0ffical?_r=1&_t=ZS-93Mxgcx8GXc" title="Tik Tok">
+        <img src="assets/images-removebg-preview.png" alt="TikTok">
+    </a>
+    <a href="https://www.instagram.com/khomeinihospital0fficial?igsh=MW5pd2R4MTVvZm0xOA%3D%3D" title="Instagram">
+        <img src="assets/instgram-removebg-preview.png" alt="Instagram">
+    </a>
+</div>
             </div>
         </div>
         
@@ -461,70 +466,110 @@
         // Doctor data
         const doctors = {
             '1': {
-                name: 'Dr. Ahmed Khan',
-                title: 'Senior Consultant Cardiologist',
-                specialty: 'Cardiology',
-                education: 'MBBS, FCPS (Cardiology), MRCP (UK)',
+                name: 'Dr. Deedar Hussain',
+                title: 'Incharge',
+                specialty: 'Incharge',
+                education: 'MBBS, ',
                 experience: '15+ Years',
-                image: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=600&h=800&fit=crop',
-                about: 'Dr. Ahmed Khan is a highly skilled cardiologist with over 15 years of experience in the field of cardiovascular medicine. He completed his MBBS from Aga Khan University and pursued his specialization in Cardiology (FCPS) from the College of Physicians and Surgeons Pakistan. He further enhanced his expertise with an MRCP from the United Kingdom. Dr. Khan has a special interest in interventional cardiology and has performed over 2000 successful cardiac procedures. He is known for his patient-centered approach, taking time to explain complex cardiac conditions in simple terms. His dedication to staying updated with the latest advancements in cardiology ensures that his patients receive the most modern and effective treatments available.',
+                image: 'assets/doctors/deedar.jpeg',
+                about: 'Dr. Deedar Hussain serves as the Hospital In-Charge, bringing extensive expertise in administration and clinical leadership. He is recognized for his strong organizational skills, patient-focused approach, and commitment to maintaining high standards of healthcare services. His leadership plays a vital role in ensuring efficient hospital operations and quality patient care.',
                 expertise: [
-                    { title: 'Interventional Cardiology', desc: 'Expert in angioplasty, stenting, and cardiac catheterization procedures' },
-                    { title: 'Heart Failure Management', desc: 'Comprehensive care for patients with chronic heart failure' },
-                    { title: 'Hypertension Treatment', desc: 'Specialized management of high blood pressure and related complications' },
-                    { title: 'Cardiac Imaging', desc: 'Proficient in echocardiography and stress testing interpretation' }
-                ],
+    { 
+        title: 'Hospital Administration', 
+        desc: 'Overall management of hospital operations, policies, and daily administrative functions' 
+    },
+    { 
+        title: 'Healthcare Leadership', 
+        desc: 'Effective leadership of medical, nursing, and support staff to ensure quality patient care' 
+    },
+    { 
+        title: 'Patient Care Management', 
+        desc: 'Ensuring patient-centered services, safety standards, and efficient service delivery' 
+    },
+    { 
+        title: 'Operational & Staff Coordination', 
+        desc: 'Coordination between departments to maintain smooth workflow and timely healthcare services' 
+    }
+],
+
                 achievements: [
-                    'Performed over 2000 successful cardiac catheterization procedures',
-                    'Published 15+ research papers in international cardiology journals',
-                    'Awarded "Best Cardiologist" by Pakistan Medical Association (2022)',
-                    'Regular speaker at national and international cardiology conferences',
-                    'Member of American College of Cardiology (ACC)'
-                ]
+    'Successfully overseeing hospital operations with a focus on efficiency and patient satisfaction',
+    'Implemented administrative policies to improve healthcare service delivery and workflow',
+    'Strengthened coordination between medical, nursing, and support departments',
+    'Played a key role in maintaining hospital standards, discipline, and patient safety',
+    'Recognized for effective leadership and commitment to quality healthcare management'
+]
+
             },
             '2': {
-                name: 'Dr. Fatima Ali',
-                title: 'Consultant Obstetrician & Gynecologist',
-                specialty: 'Gynecology',
-                education: 'MBBS, FCPS (Obs & Gynae), MRCOG',
+                name: 'Dr. Sarfaraz Khan',
+                title: 'Consultant ENT',
+                specialty: 'ENT',
+                education: 'MBBS, FCPS (ENT),',
                 experience: '12+ Years',
-                image: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=600&h=800&fit=crop',
-                about: 'Dr. Fatima Ali is a distinguished obstetrician and gynecologist dedicated to providing comprehensive women\'s healthcare. She completed her medical education from Dow University of Health Sciences and obtained her FCPS in Obstetrics & Gynecology. She further enhanced her qualifications with an MRCOG from the Royal College of Obstetricians and Gynaecologists, UK. With over 12 years of experience, Dr. Ali has successfully managed more than 3000 deliveries, including high-risk pregnancies. She specializes in minimally invasive gynecological surgeries and is passionate about promoting women\'s health awareness. Her compassionate approach and excellent communication skills make her highly respected among her patients.',
-                expertise: [
-                    { title: 'High-Risk Pregnancy', desc: 'Expert management of complicated pregnancies and maternal health' },
-                    { title: 'Laparoscopic Surgery', desc: 'Minimally invasive procedures for gynecological conditions' },
-                    { title: 'Infertility Treatment', desc: 'Comprehensive evaluation and treatment of fertility issues' },
-                    { title: 'Prenatal Care', desc: 'Complete antenatal care and fetal monitoring' }
-                ],
-                achievements: [
-                    'Successfully handled over 3000 deliveries including high-risk cases',
-                    'Pioneer in introducing minimally invasive gynecological procedures in the region',
-                    'Conducted numerous health awareness workshops for women',
-                    'Member of Pakistan Society of Obstetrics & Gynecology',
-                    'Received Excellence in Patient Care Award (2023)'
-                ]
+                image: 'assets/doctors/sarfaraz khan.jpeg',
+                about: 'Dr. Sarfaraz Khan is a Consultant ENT specialist, known for his expertise in the diagnosis and treatment of ear, nose, and throat disorders. He is committed to providing compassionate, patient-centered care using modern and effective treatment approaches.',
+               expertise: [
+    { 
+        title: 'ENT Disorders Management', 
+        desc: 'Diagnosis and treatment of ear, nose, and throat conditions for all age groups' 
+    },
+    { 
+        title: 'Sinus & Nasal Conditions', 
+        desc: 'Management of sinusitis, nasal blockage, and related nasal disorders' 
+    },
+    { 
+        title: 'Hearing & Ear Care', 
+        desc: 'Evaluation and treatment of hearing problems, ear infections, and balance disorders' 
+    },
+    { 
+        title: 'Throat & Voice Disorders', 
+        desc: 'Care for throat infections, voice issues, and swallowing difficulties' 
+    }
+],
+achievements: [
+    'Successfully treated a wide range of ENT conditions with patient-focused care',
+    'Recognized for accurate diagnosis and effective ENT treatment outcomes',
+    'Actively involved in patient education and health awareness activities',
+    'Maintains high standards of clinical practice and patient safety',
+    'Well-regarded for professional dedication and compassionate care'
+]
+
             },
             '3': {
-                name: 'Dr. Hassan Baloch',
-                title: 'Senior Consultant General Surgeon',
-                specialty: 'General Surgery',
-                education: 'MBBS, FCPS (Surgery), FRCS',
-                experience: '20+ Years',
-                image: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=600&h=800&fit=crop',
-                about: 'Dr. Hassan Baloch is a veteran general surgeon with two decades of surgical excellence. He graduated from Bolan Medical College and completed his FCPS in General Surgery from CPSP. He pursued further training and obtained FRCS from the Royal College of Surgeons of Edinburgh. Dr. Baloch specializes in laparoscopic and minimally invasive surgical techniques, reducing patient recovery time and surgical complications. Throughout his illustrious career, he has performed thousands of successful operations ranging from routine procedures to complex surgical interventions. His expertise, precision, and patient-first approach have earned him recognition as one of the leading surgeons in the region.',
+                name: 'Dr. Zafar Iqbal',
+                title: 'Gastroenterologist',
+                specialty: 'Consultant Gastroenterologist',
+                education: 'MBBS, FCPS (Gastroenterology)',
+                experience: '10+ Years',
+                image: 'assets/doctors/zafar iqbal.jpeg',
+                about: 'Dr. Zafar Iqbal is a Consultant Gastroenterologist, specializing in the diagnosis and management of digestive system and liver-related disorders. He is dedicated to delivering patient-centered care with a focus on accurate diagnosis and effective treatment.',
                 expertise: [
-                    { title: 'Laparoscopic Surgery', desc: 'Advanced minimally invasive surgical techniques' },
-                    { title: 'Emergency Surgery', desc: 'Expert handling of acute surgical emergencies' },
-                    { title: 'Hernia Repair', desc: 'Specialized in all types of hernia surgeries' },
-                    { title: 'GI Surgery', desc: 'Gastrointestinal and abdominal surgical procedures' }
-                ],
-                achievements: [
-                    'Performed over 5000 successful surgical procedures',
-                    'Introduced advanced laparoscopic techniques in Balochistan',
-                    'Trained more than 50 junior surgeons',
-                    'Fellow of Royal College of Surgeons Edinburgh (FRCS)',
-                    'Published extensively on surgical techniques and outcomes'
-                ]
+    { 
+        title: 'Gastrointestinal Disorders', 
+        desc: 'Diagnosis and management of digestive system and gastrointestinal conditions' 
+    },
+    { 
+        title: 'Liver & Hepatobiliary Diseases', 
+        desc: 'Care and treatment of liver, gallbladder, and bile duct disorders' 
+    },
+    { 
+        title: 'Endoscopic Procedures', 
+        desc: 'Evaluation and management using diagnostic and therapeutic endoscopy' 
+    },
+    { 
+        title: 'Digestive Health Management', 
+        desc: 'Comprehensive care for chronic digestive issues and related conditions' 
+    }
+],
+achievements: [
+    'Successfully managed a wide range of gastrointestinal and liver-related conditions',
+    'Recognized for accurate diagnosis and effective gastroenterology care',
+    'Actively involved in patient education and digestive health awareness',
+    'Maintains high standards of clinical practice and patient safety',
+    'Respected for professional integrity and patient-centered approach'
+]
+
             },
             '4': {
                 name: 'Dr. Sara Ahmed',
