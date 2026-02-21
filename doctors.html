@@ -34,7 +34,7 @@
 
         .doctors-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 2.5rem;
         }
 
@@ -88,11 +88,11 @@
         }
 
         .doctor-info {
-            padding: 2rem;
+            padding: 1.5rem;
         }
 
         .doctor-name {
-            font-size: 1.7rem;
+            font-size: 1.4rem;
             font-weight: 700;
             color: #1a1a1a;
             margin-bottom: 0.5rem;
@@ -100,14 +100,14 @@
         }
 
         .doctor-title {
-            font-size: 1.1rem;
+            font-size: 1rem;
             color: #dc2626;
             font-weight: 600;
             margin-bottom: 1rem;
         }
 
         .doctor-education {
-            font-size: 1rem;
+            font-size: 0.9rem;
             color: #666;
             margin-bottom: 1.2rem;
             padding: 0.8rem;
@@ -168,7 +168,7 @@
             }
 
             .doctor-image-wrapper {
-                height: 350px;
+                height: 300px;
             }
         }
     </style>
@@ -217,21 +217,58 @@
             <!-- Doctor Card 1 -->
             <div class="doctor-card" onclick="window.location.href='doctor-detail.html?id=1'">
                 <div class="doctor-image-wrapper">
-                    <img src="assets/doctors/deedar.jpeg" alt="Dr. Ahmed Khan" class="doctor-image">
-                    <div class="doctor-specialty-badge">Incharge</div>
+                    <img src="assets/doctors.png" alt="Dr. Shah zaman" class="doctor-image">
+                    <div class="doctor-specialty-badge">General Surgeon</div>
                 </div>
                 <div class="doctor-info">
-                    <h2 class="doctor-name">Dr. Deedar Hussain</h2>
-                    <p class="doctor-title">Incharge</p>
-                    <p class="doctor-education">MBBS, </p>
+                    <h2 class="doctor-name">Dr. Shah Zaman</h2>
+                    <p class="doctor-title">General Surgeon</p>
+                    <p class="doctor-education">MBBS, MS General Surgery </p>
                     <p class="doctor-description">
-                        Dr. Deedar Hussain serves as the Hospital In-Charge, bringing extensive expertise in administration and clinical leadership. He is recognized for his strong organizational skills, patient-focused approach, and commitment to maintaining high standards of healthcare services. His leadership plays a vital role in ensuring efficient hospital operations and quality patient care.
+                       Dr. Shah Zaman serves as the General Surgeon of our hospital, bringing extensive expertise in surgical care and clinical excellence. He is widely recognized for his precision, dedication, and patient-centered approach in managing a wide range of surgical procedures. With strong decision-making skills and a commitment to maintaining the highest standards of safety and professionalism, Dr. Shah Zaman plays a vital role in delivering quality surgical services and ensuring the best possible outcomes for patients.
                     </p>
                     <a href="doctor-detail.html?id=1" class="view-profile-btn">View Full Profile →</a>
                 </div>
             </div>
 
-            <!-- Doctor Card 2 -->
+<!-- Doctor Card 2 -->
+            <div class="doctor-card" onclick="window.location.href='doctor-detail.html?id=4'">
+                <div class="doctor-image-wrapper">
+                    <img src="assets/doctors.png" alt="Dr. Muhammad Faisal Hameed" class="doctor-image">
+                    <div class="doctor-specialty-badge">General Surgeon</div>
+                </div>
+                <div class="doctor-info">
+                    <h2 class="doctor-name">Dr. Muhammad Faisal Hameed</h2>
+                    <p class="doctor-title">General Surgeon</p>
+                    <p class="doctor-education">MBBS, FCPS (General Surgery),</p>
+                    <p class="doctor-description">
+                       Dr. Muhammad Faisal Hameed is a dedicated and skilled General Surgeon with 3 years of clinical experience in managing a wide range of surgical conditions. He completed his MBBS from a recognized medical institution and has gained valuable hands-on experience in both elective and emergency surgical procedures. Known for his calm approach and precise surgical skills, Dr. Faisal is committed to delivering safe, ethical, and patient-centered care. He focuses on accurate diagnosis, effective surgical planning, and comprehensive post-operative management to ensure optimal recovery outcomes. His professional approach, strong work ethic, and dedication to continuous learning make him a valuable asset to the hospital’s surgical team.
+                    </p>
+                    <a href="doctor-detail.html?id=4" class="view-profile-btn">View Full Profile →</a>
+                </div>
+            </div>
+            
+
+
+            
+<!-- Doctor Card 3 -->
+            <div class="doctor-card" onclick="window.location.href='doctor-detail.html?id=5'">
+                <div class="doctor-image-wrapper">
+                    <img src="assets/doctors.png" alt="Dr. Muhammad Bakhsh Shahwani" class="doctor-image">
+                    <div class="doctor-specialty-badge">Orthopedic Surgeon</div>
+                </div>
+                <div class="doctor-info">
+                    <h2 class="doctor-name">Dr. Muhammad Bakhsh Shahwani</h2>
+                    <p class="doctor-title">Orthopedic Surgeon</p>
+                    <p class="doctor-education">MBBS, FCPS (Orthopedic Surgery),</p>
+                    <p class="doctor-description">
+                      Dr. Muhammad Bakhsh Shahwani is a highly experienced Orthopaedic Surgeon with 19 years of dedicated service in the field of musculoskeletal health and trauma care. He completed his MBBS from a recognized medical institution and pursued specialized training in Orthopaedic Surgery, gaining extensive expertise in both surgical and non-surgical management of bone and joint disorders. Over the course of his career, Dr. Shahwani has successfully treated thousands of patients, helping them restore mobility and improve their quality of life. He is particularly known for his expertise in joint replacement surgeries, fracture management, and advanced orthopedic procedures. His patient-centered philosophy emphasizes accurate diagnosis, conservative management when appropriate, and the use of modern surgical techniques to ensure the best possible outcomes.
+                    </p>
+                    <a href="doctor-detail.html?id=5" class="view-profile-btn">View Full Profile →</a>
+                </div>
+            </div>
+
+            <!-- Doctor Card 4 -->
             <div class="doctor-card" onclick="window.location.href='doctor-detail.html?id=2'">
                 <div class="doctor-image-wrapper">
                     <img src="assets/doctors/sarfaraz khan.jpeg" alt="Dr. Sarfaraz Khan" class="doctor-image">
@@ -248,7 +285,7 @@
                 </div>
             </div>
 
-            <!-- Doctor Card 3 -->
+            <!-- Doctor Card 5 -->
             <div class="doctor-card" onclick="window.location.href='doctor-detail.html?id=3'">
                 <div class="doctor-image-wrapper">
                     <img src="assets/doctors/zafar iqbal.jpeg" alt="Dr. Zafar Iqbal" class="doctor-image">
@@ -265,56 +302,92 @@
                 </div>
             </div>
 
-            <!-- Doctor Card 4 -->
-            <!-- <div class="doctor-card" onclick="window.location.href='doctor-detail.html?id=4'">
+            <!-- Doctor Card 6 -->
+            <div class="doctor-card" onclick="window.location.href='doctor-detail.html?id=6'">
                 <div class="doctor-image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=600&h=800&fit=crop" alt="Dr. Sara Ahmed" class="doctor-image">
-                    <div class="doctor-specialty-badge">Pediatrics</div>
+                    <img src="assets/doctors.png" alt="Dr. Habib Ullah" class="doctor-image">
+                    <div class="doctor-specialty-badge">Gastroenterologist</div>
                 </div>
                 <div class="doctor-info">
-                    <h2 class="doctor-name">Dr. Sara Ahmed</h2>
-                    <p class="doctor-title">Consultant Pediatrician</p>
-                    <p class="doctor-education">MBBS, FCPS (Pediatrics), MRCPCH</p>
+                    <h2 class="doctor-name">Dr. Habib Ullah</h2>
+                    <p class="doctor-title">Gastroenterologist</p>
+                    <p class="doctor-education">MBBS, FCPS (Gastroenterology),</p>
                     <p class="doctor-description">
                         Dr. Sara Ahmed is a compassionate pediatrician with special interest in neonatal care and child development. She creates a friendly environment for children and provides comprehensive care from newborns to adolescents.
                     </p>
-                    <a href="doctor-detail.html?id=4" class="view-profile-btn">View Full Profile →</a>
-                </div>
-            </div> -->
-
-            <!-- Doctor Card 5 -->
-            <!-- <div class="doctor-card" onclick="window.location.href='doctor-detail.html?id=5'">
-                <div class="doctor-image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?w=600&h=800&fit=crop" alt="Dr. Mohammad Yousaf" class="doctor-image">
-                    <div class="doctor-specialty-badge">Orthopedics</div>
-                </div>
-                <div class="doctor-info">
-                    <h2 class="doctor-name">Dr. Mohammad Yousaf</h2>
-                    <p class="doctor-title">Consultant Orthopedic Surgeon</p>
-                    <p class="doctor-education">MBBS, FCPS (Orthopedics), FRCS</p>
-                    <p class="doctor-description">
-                        Dr. Mohammad Yousaf specializes in joint replacement surgeries and sports medicine. He uses the latest techniques in orthopedic surgery and has helped thousands of patients regain mobility and quality of life.
-                    </p>
-                    <a href="doctor-detail.html?id=5" class="view-profile-btn">View Full Profile →</a>
-                </div>
-            </div> -->
-
-            <!-- Doctor Card 6 -->
-            <!-- <div class="doctor-card" onclick="window.location.href='doctor-detail.html?id=6'">
-                <div class="doctor-image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=600&h=800&fit=crop" alt="Dr. Ayesha Malik" class="doctor-image">
-                    <div class="doctor-specialty-badge">Internal Medicine</div>
-                </div>
-                <div class="doctor-info">
-                    <h2 class="doctor-name">Dr. Ayesha Malik</h2>
-                    <p class="doctor-title">Consultant Physician</p>
-                    <p class="doctor-education">MBBS, FCPS (Medicine), MRCP</p>
-                    <p class="doctor-description">
-                        Dr. Ayesha Malik is an experienced physician specializing in diabetes, hypertension, and chronic disease management. She believes in preventive medicine and works closely with patients to improve their overall health and wellbeing.
-                    </p>
                     <a href="doctor-detail.html?id=6" class="view-profile-btn">View Full Profile →</a>
                 </div>
-            </div> -->
+            </div>
+
+            <!-- Doctor Card 7 -->
+            <div class="doctor-card" onclick="window.location.href='doctor-detail.html?id=7'">
+                <div class="doctor-image-wrapper">
+                    <img src="assets/female doctors.png" alt="Dr. Naseeba Abdul Rasheed" class="doctor-image">
+                    <div class="doctor-specialty-badge">Dermatologist </div>
+                </div>
+                <div class="doctor-info">
+                    <h2 class="doctor-name">Dr. Naseeba Abdul Rasheed</h2>
+                    <p class="doctor-title">Consultant Dermatologist</p>
+                    <p class="doctor-education">MBBS, FCPS (Dermatology)</p>
+                    <p class="doctor-description">
+                       Dr. Naseeba Abdul Rasheed is a dedicated Dermatologist with 1 year of clinical experience in diagnosing and treating a wide range of skin, hair, and nail conditions. She completed her MBBS from a recognized medical institution and pursued focused training in Dermatology, gaining hands-on experience in both medical and cosmetic skin treatments. Dr. Naseeba is known for her patient-friendly approach, careful skin assessments, and commitment to providing safe and effective treatment plans. She emphasizes preventive skincare, early diagnosis, and personalized management to help patients achieve healthy and confident skin.
+                    </p>
+                    <a href="doctor-detail.html?id=7" class="view-profile-btn">View Full Profile →</a>
+                </div>
+            </div>
+
+            <!-- Doctor Card 8 -->
+            <div class="doctor-card" onclick="window.location.href='doctor-detail.html?id=8'">
+                <div class="doctor-image-wrapper">
+                    <img src="assets/female doctors.png" alt="Dr. Gul Afroz" class="doctor-image">
+                    <div class="doctor-specialty-badge">Gynecologist</div>
+                </div>
+                <div class="doctor-info">
+                    <h2 class="doctor-name">Dr. Gul Afroz</h2>
+                    <p class="doctor-title">Consultant Gynecologist</p>
+                    <p class="doctor-education">MBBS, MCPS (Obstetrics & Gynaecology)</p>
+                    <p class="doctor-description">
+                    Dr. Gul Afroz is a highly experienced Gynecologist with 13 years of dedicated service in women’s health and obstetric care. She completed her MBBS from a recognized medical institution and pursued specialized training in Gynecology and Obstetrics, gaining extensive experience in both routine and high-risk cases. Over the years, Dr. Gul Afroz has provided comprehensive care to women at all stages of life, from adolescence to menopause. She is known for her compassionate approach, careful clinical judgment, and commitment to ensuring safe motherhood and reproductive health. Her patient-centered philosophy emphasizes respectful communication, preventive care, and evidence-based medical practices to achieve the best possible outcomes.
+                    </p>
+                    <a href="doctor-detail.html?id=8" class="view-profile-btn">View Full Profile →</a>
+                </div>
+            </div>
+
+
+            <!-- Doctor Card 9 -->
+            <div class="doctor-card" onclick="window.location.href='doctor-detail.html?id=9'">
+                <div class="doctor-image-wrapper">
+                    <img src="assets/female doctors.png" alt="Dr. Saima Rasool" class="doctor-image">
+                    <div class="doctor-specialty-badge">Gynecologist</div>
+                </div>
+                <div class="doctor-info">
+                    <h2 class="doctor-name">Dr. Saima Rasool</h2>
+                    <p class="doctor-title">Consultant Gynecologist</p>
+                    <p class="doctor-education">MBBS, FCPS (Obstetrics & Gynaecology)</p>
+                    <p class="doctor-description">
+                   Dr. Saima Rasool is a dedicated Gynecologist with 4 years of clinical experience in women’s health and obstetric care. She completed her MBBS from a recognized medical institution and received specialized training in Gynecology and Obstetrics. Dr. Saima is known for her compassionate approach, attentive patient care, and commitment to maintaining high standards of maternal and reproductive healthcare. She focuses on accurate diagnosis, safe pregnancy management, and individualized treatment plans to ensure the wellbeing of both mother and child. Her professional dedication and patient-friendly attitude make her a valuable member of the hospital’s women’s health team.
+                    </p>
+                    <a href="doctor-detail.html?id=9" class="view-profile-btn">View Full Profile →</a>
+                </div>
+            </div>
+
+<!-- Doctor Card 10 -->
+            <div class="doctor-card" onclick="window.location.href='doctor-detail.html?id=10'">
+                <div class="doctor-image-wrapper">
+                    <img src="assets/female doctors.png" alt="Dr. Hafiza Afifa Choudhary" class="doctor-image">
+                    <div class="doctor-specialty-badge">Gynecologist</div>
+                </div>
+                <div class="doctor-info">
+                    <h2 class="doctor-name">Dr. Hafiza Afifa Choudhary</h2>
+                    <p class="doctor-title">Consultant Gynecologist</p>
+                    <p class="doctor-education">MBBS, MCPS (Obstetrics & Gynaecology)</p>
+                    <p class="doctor-description">
+                  Dr. Hafiza Afifa Choudhary is a committed Gynecologist with 4 years of experience in providing comprehensive women’s healthcare and obstetric services. She completed her MBBS from a recognized medical institution and pursued specialized training in Gynecology and Obstetrics. Dr. Hafiza Afifa is known for her empathetic approach, strong clinical skills, and dedication to ensuring safe motherhood and reproductive health. She focuses on individualized patient care, accurate diagnosis, and evidence-based treatment to promote the wellbeing of women at every stage of life. Her calm demeanor and professional integrity make her a trusted healthcare provider for her patients.
+                    </p>
+                    <a href="doctor-detail.html?id=10" class="view-profile-btn">View Full Profile →</a>
+                </div>
+            </div>
+
         </div>
     </div>
 
